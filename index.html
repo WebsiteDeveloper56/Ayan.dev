@@ -1,0 +1,1932 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayan Fareed | Frontend Developer</title>
+    <meta name="description" content="Ayan Fareed is a Frontend Developer focused on modern responsive websites, interactive interfaces and clean frontend development.">
+    <meta name="keywords" content="Ayan Fareed, Frontend Developer, Web Developer, HTML5, CSS3, JavaScript, UI Implementation, Responsive Web Design">
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Ayan Fareed | Frontend Developer">
+    <meta property="og:description" content="Frontend Developer crafting modern digital experiences with clean code and responsive practices.">
+    <meta property="og:type" content="website">
+
+    <!-- Tailwind CSS CDN for styling architecture (Requested vanilla implementation with utility & custom styles framework bridge, keeping zero build step) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            900: '#0a0f1d',
+                            800: '#111827',
+                            700: '#1f293d',
+                            600: '#334155'
+                        },
+                        accent: {
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            400: '#818cf8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        mono: ['Fira Code', 'JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Custom polished styling overlays and glassmorphism elements */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0f1d;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        .glass-panel {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #818cf8 0%, #6366f1 50%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-border {
+            position: relative;
+            border-radius: 1rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(192, 132, 252, 0.1));
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0f1d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4f46e5;
+        }
+
+        /* Animations & Keyframes */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+
+        .animate-glow {
+            animation: pulseGlow 4s ease-in-out infinite;
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-dark-900 text-slate-100 antialiased selection:bg-accent-500 selection:text-white">
+
+    <!-- STICKY RESPONSIVE NAVBAR -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-panel border-b border-white/5 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+            <a href="#home" class="text-2xl font-extrabold tracking-tight flex items-center gap-2 group">
+                <span class="w-3 h-3 rounded-full bg-accent-500 group-hover:scale-125 transition-transform"></span>
+                <span class="gradient-text">Ayan.dev</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-300">
+                <a href="#home" class="nav-link hover:text-accent-400 transition-colors py-1">Home</a>
+                <a href="#about" class="nav-link hover:text-accent-400 transition-colors py-1">About</a>
+                <a href="#skills" class="nav-link hover:text-accent-400 transition-colors py-1">Skills</a>
+                <a href="#services" class="nav-link hover:text-accent-400 transition-colors py-1">Services</a>
+                <a href="#lab" class="nav-link hover:text-accent-400 transition-colors py-1">Frontend Lab</a>
+                <a href="#projects" class="nav-link hover:text-accent-400 transition-colors py-1">Projects</a>
+                <a href="#process" class="nav-link hover:text-accent-400 transition-colors py-1">Process</a>
+                <a href="#faq" class="nav-link hover:text-accent-400 transition-colors py-1">FAQ</a>
+                <a href="#contact" class="nav-link hover:text-accent-400 transition-colors py-1">Contact</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#contact" class="px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-accent-500 to-purple-600 hover:from-accent-600 hover:to-purple-700 shadow-lg shadow-accent-500/25 transition-all transform hover:-translate-y-0.5">
+                    Let's Build
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" aria-label="Toggle Navigation Menu" class="md:hidden text-slate-300 hover:text-white focus:outline-none p-2">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 glass-panel border-b border-white/10 px-6 py-6 flex flex-col gap-4 shadow-2xl transition-all">
+            <a href="#home" class="mobile-link text-lg font-medium text-slate-200 hover:text-accent-400 py-2 border-b border-white/5">Home</a>
+            <a href="#about" class="mobile-link text-lg font-medium text-slate-200 hover:text-accent-400 py-2 border-b border-white/5">About</a>
+            <a href="#skills" class="mobile-link text-lg font-medium text-slate-200 hover:text-accent-400 py-2 border-b border-white/5">Skills</a>
+            <a href="#services" class="mobile-link text-lg font-medium text-slate-200 hover:text-accent-400 py-2 border-b border-white/5">Services</a>
+            <a href="#lab" class="mobile-link text-lg font-medium text-slate-200 hover:text-accent-400 py-2 border-b border-white/5">Frontend Lab</a>
+            <a href="#projects" class="mobile-link text-lg font-medium text-slate-200 hover:text-accent-400 py-2 border-b border-white/5">Projects</a>
+            <a href="#process" class="mobile-link text-lg font-medium text-slate-200 hover:text-accent-400 py-2 border-b border-white/5">Process</a>
+            <a href="#faq" class="mobile-link text-lg font-medium text-slate-200 hover:text-accent-400 py-2 border-b border-white/5">FAQ</a>
+            <a href="#contact" class="mobile-link text-lg font-medium text-slate-200 hover:text-accent-400 py-2">Contact</a>
+            <a href="#contact" class="mobile-link w-full py-3 rounded-xl text-center font-semibold text-white bg-gradient-to-r from-accent-500 to-purple-600 shadow-lg shadow-accent-500/25 mt-2">
+                Let's Build
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section id="home" class="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden">
+            <!-- Background glow effects -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-500/15 rounded-full blur-[140px] pointer-events-none animate-glow"></div>
+            <div class="absolute bottom-10 right-10 w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Hero Content -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel border border-accent-500/30 text-accent-400 text-xs font-semibold tracking-wider uppercase">
+                            <i class="fa-solid fa-code text-xs"></i> FRONTEND DEVELOPER
+                        </div>
+
+                        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none">
+                            CRAFTING MODERN <br>
+                            <span class="gradient-text">DIGITAL EXPERIENCES.</span>
+                        </h1>
+
+                        <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                            Ayan Fareed is a Frontend Developer focused on creating responsive, interactive and visually polished web interfaces with clean code and modern frontend practices.
+                        </p>
+
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                            <a href="#projects" class="px-7 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-accent-500 to-purple-600 hover:from-accent-600 hover:to-purple-700 shadow-xl shadow-accent-500/30 transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
+                                <span>View Projects</span>
+                                <i class="fa-solid fa-arrow-right text-sm"></i>
+                            </a>
+                            <a href="#contact" class="px-7 py-3.5 rounded-xl font-semibold text-slate-200 glass-panel hover:bg-white/10 transition-all border border-white/10">
+                                Contact Me
+                            </a>
+                            <a href="https://wa.me/923042207229" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl font-semibold text-emerald-400 glass-panel hover:bg-emerald-500/10 transition-all border border-emerald-500/20 flex items-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                <span>WhatsApp Me</span>
+                            </a>
+                        </div>
+
+                        <!-- Direct contact quick badges -->
+                        <div class="pt-6 border-t border-white/10 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-slate-400 font-mono">
+                            <a href="tel:03042207229" class="hover:text-accent-400 transition-colors flex items-center gap-2">
+                                <i class="fa-solid fa-phone text-accent-500"></i> 03042207229
+                            </a>
+                            <a href="mailto:ayan.frontend@gmail.com" class="hover:text-accent-400 transition-colors flex items-center gap-2">
+                                <i class="fa-solid fa-envelope text-accent-500"></i> ayan.frontend@gmail.com
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Hero Visual / Code Editor Mockup -->
+                    <div class="lg:col-span-5">
+                        <div class="glass-card rounded-2xl p-4 sm:p-6 shadow-2xl border border-white/10 relative animate-float">
+                            <!-- Window Header -->
+                            <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
+                                    <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
+                                    <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
+                                </div>
+                                <div class="text-xs font-mono text-slate-400 glass-panel px-3 py-1 rounded-md">
+                                    index.html — Ayan.dev
+                                </div>
+                                <div class="text-slate-500 text-xs">
+                                    <i class="fa-solid fa-code"></i>
+                                </div>
+                            </div>
+
+                            <!-- Code Editor Content -->
+                            <div class="font-mono text-xs sm:text-sm text-slate-300 space-y-2 bg-dark-900/80 p-4 rounded-xl border border-white/5">
+                                <div class="text-slate-500">// Frontend Developer Component Workspace</div>
+                                <div><span class="text-purple-400">&lt;div</span> <span class="text-sky-300">class</span>=<span class="text-emerald-300">"hero-interface"</span><span class="text-purple-400">&gt;</span></div>
+                                <div class="pl-4"><span class="text-purple-400">&lt;h1</span> <span class="text-sky-300">class</span>=<span class="text-emerald-300">"title"</span><span class="text-purple-400">&gt;</span>Build Better Interfaces<span class="text-purple-400">&lt;/h1&gt;</span></div>
+                                <div class="pl-4"><span class="text-purple-400">&lt;p&gt;</span>Responsive &bull; Clean Code &bull; UI<span class="text-purple-400">&lt;/p&gt;</span></div>
+                                <div class="pl-4"><span class="text-purple-400">&lt;div</span> <span class="text-sky-300">class</span>=<span class="text-emerald-300">"cta-group"</span><span class="text-purple-400">&gt;</span></div>
+                                <div class="pl-8"><span class="text-purple-400">&lt;button</span> <span class="text-sky-300">id</span>=<span class="text-emerald-300">"explore"</span><span class="text-purple-400">&gt;</span>Explore<span class="text-purple-400">&lt;/button&gt;</span></div>
+                                <div class="pl-4"><span class="text-purple-400">&lt;/div&gt;</span></div>
+                                <div><span class="text-purple-400">&lt;/div&gt;</span></div>
+                            </div>
+
+                            <!-- Live preview card inside hero visual -->
+                            <div class="mt-4 p-4 rounded-xl bg-gradient-to-r from-accent-500/10 to-purple-600/10 border border-accent-500/20 flex items-center justify-between">
+                                <div class="space-y-1">
+                                    <div class="text-xs font-semibold text-accent-400 uppercase tracking-wider">Live Preview</div>
+                                    <div class="text-sm font-bold text-white">Build Better Interfaces</div>
+                                </div>
+                                <div class="w-8 h-8 rounded-full bg-accent-500/20 flex items-center justify-center text-accent-400">
+                                    <i class="fa-solid fa-bolt text-xs"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="py-24 relative bg-dark-800/50 border-t border-b border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <span class="text-accent-400 text-xs font-semibold tracking-widest uppercase">Professional Profile</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">DESIGN. CODE. EXPERIENCE.</h2>
+                    <p class="text-slate-300 text-base sm:text-lg">
+                        Dedicated frontend specialist focused on bringing meticulous UI design, robust architecture, and seamless user experiences to life.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-6 text-slate-300 leading-relaxed text-base sm:text-lg">
+                        <p>
+                            As a passionate <strong class="text-white font-semibold">Frontend Developer</strong>, I specialize in transforming complex requirements and modern UI concepts into lightning-fast, highly responsive web interfaces. My work revolves around clean code practices, component-based thinking, and meticulous attention to visual detail.
+                        </p>
+                        <p>
+                            Whether building interactive dashboards, landing pages, or multi-page business websites, I ensure every project is optimized across devices, accessible to users, and built with maintainable HTML5, CSS3, and Vanilla JavaScript foundations.
+                        </p>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4">
+                            <div class="glass-panel p-4 rounded-xl border border-white/5 text-center">
+                                <div class="text-2xl font-bold text-accent-400 mb-1">100%</div>
+                                <div class="text-xs text-slate-400">Responsive Layouts</div>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl border border-white/5 text-center">
+                                <div class="text-2xl font-bold text-purple-400 mb-1">Clean</div>
+                                <div class="text-xs text-slate-400">Code Standards</div>
+                            </div>
+                            <div class="glass-panel p-4 rounded-xl border border-white/5 text-center col-span-2 sm:col-span-1">
+                                <div class="text-2xl font-bold text-emerald-400 mb-1">Modern</div>
+                                <div class="text-xs text-slate-400">UI Practices</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Information Card -->
+                    <div class="lg:col-span-5">
+                        <div class="glass-card rounded-2xl p-6 sm:p-8 border border-white/10 shadow-xl relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-32 h-32 bg-accent-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                            <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                                <i class="fa-solid fa-id-card text-accent-400"></i> Developer Information
+                            </h3>
+                            <div class="space-y-4 text-sm">
+                                <div class="flex items-center justify-between py-3 border-b border-white/5">
+                                    <span class="text-slate-400">Name</span>
+                                    <span class="font-semibold text-white">Ayan Fareed</span>
+                                </div>
+                                <div class="flex items-center justify-between py-3 border-b border-white/5">
+                                    <span class="text-slate-400">Role</span>
+                                    <span class="font-semibold text-accent-400">Frontend Developer</span>
+                                </div>
+                                <div class="flex items-center justify-between py-3 border-b border-white/5">
+                                    <span class="text-slate-400">Phone</span>
+                                    <a href="tel:03042207229" class="font-semibold text-slate-200 hover:text-accent-400 transition-colors font-mono">03042207229</a>
+                                </div>
+                                <div class="flex items-center justify-between py-3">
+                                    <span class="text-slate-400">Email</span>
+                                    <a href="mailto:ayan.frontend@gmail.com" class="font-semibold text-slate-200 hover:text-accent-400 transition-colors font-mono text-xs sm:text-sm">ayan.frontend@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="mt-6 pt-6 border-t border-white/10 flex gap-3">
+                                <a href="#contact" class="flex-1 py-3 rounded-xl text-center text-xs font-semibold text-white bg-accent-500 hover:bg-accent-600 transition-colors">
+                                    Get in Touch
+                                </a>
+                                <a href="https://wa.me/923042207229" target="_blank" rel="noopener noreferrer" class="px-4 py-3 rounded-xl text-center text-xs font-semibold text-emerald-400 glass-panel hover:bg-emerald-500/10 border border-emerald-500/20">
+                                    <i class="fa-brands fa-whatsapp text-base"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FRONTEND SKILLS SECTION -->
+        <section id="skills" class="py-24 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <span class="text-accent-400 text-xs font-semibold tracking-widest uppercase">Technical Competencies</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">FRONTEND SKILLS</h2>
+                    <p class="text-slate-300 text-base sm:text-lg">
+                        Click on any skill card below to view detailed implementation context.
+                    </p>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex flex-wrap items-center justify-center gap-3 mb-12">
+                    <button class="skill-filter-btn px-5 py-2.5 rounded-xl text-sm font-medium bg-accent-500 text-white shadow-lg shadow-accent-500/25 transition-all" data-filter="all">All Skills</button>
+                    <button class="skill-filter-btn px-5 py-2.5 rounded-xl text-sm font-medium glass-panel text-slate-300 hover:text-white hover:bg-white/10 transition-all" data-filter="core">Core Web</button>
+                    <button class="skill-filter-btn px-5 py-2.5 rounded-xl text-sm font-medium glass-panel text-slate-300 hover:text-white hover:bg-white/10 transition-all" data-filter="frontend">Frontend</button>
+                    <button class="skill-filter-btn px-5 py-2.5 rounded-xl text-sm font-medium glass-panel text-slate-300 hover:text-white hover:bg-white/10 transition-all" data-filter="styling">Styling</button>
+                    <button class="skill-filter-btn px-5 py-2.5 rounded-xl text-sm font-medium glass-panel text-slate-300 hover:text-white hover:bg-white/10 transition-all" data-filter="development">Development</button>
+                </div>
+
+                <!-- Skills Grid -->
+                <div id="skills-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Core Web -->
+                    <div class="skill-card glass-card p-6 rounded-2xl border border-white/10 hover:border-accent-500/50 transition-all cursor-pointer group" data-category="core" data-desc="Semantic, accessible HTML5 structure providing strong SEO foundations and document accessibility standards.">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-brands fa-html5"></i>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500 uppercase">Core Web</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">HTML5</h3>
+                        <p class="text-slate-400 text-sm">Semantic markup, accessibility standards, and structured document hierarchy.</p>
+                        <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-accent-400 font-medium">
+                            <span>Click to Inspect</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+
+                    <div class="skill-card glass-card p-6 rounded-2xl border border-white/10 hover:border-accent-500/50 transition-all cursor-pointer group" data-category="core" data-desc="Advanced CSS3 styling including Flexbox, Grid layouts, custom variables, and modern responsive design patterns.">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-brands fa-css3-alt"></i>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500 uppercase">Core Web</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">CSS3</h3>
+                        <p class="text-slate-400 text-sm">Flexbox, CSS Grid, variables, transitions, and responsive media queries.</p>
+                        <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-accent-400 font-medium">
+                            <span>Click to Inspect</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+
+                    <div class="skill-card glass-card p-6 rounded-2xl border border-white/10 hover:border-accent-500/50 transition-all cursor-pointer group" data-category="core" data-desc="Vanilla JavaScript (ES6+) for interactive logic, DOM manipulation, asynchronous operations, and dynamic UI states.">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-yellow-500/10 text-yellow-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-brands fa-js"></i>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500 uppercase">Core Web</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">JavaScript</h3>
+                        <p class="text-slate-400 text-sm">ES6+ syntax, DOM manipulation, event handling, and interactive components.</p>
+                        <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-accent-400 font-medium">
+                            <span>Click to Inspect</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+
+                    <div class="skill-card glass-card p-6 rounded-2xl border border-white/10 hover:border-accent-500/50 transition-all cursor-pointer group" data-category="core" data-desc="Responsive design principles ensuring seamless visual adaptation across mobile, tablet, and desktop viewports.">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-mobile-screen-button"></i>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500 uppercase">Core Web</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Responsive Design</h3>
+                        <p class="text-slate-400 text-sm">Fluid layouts, mobile-first methodology, and cross-device adaptation.</p>
+                        <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-accent-400 font-medium">
+                            <span>Click to Inspect</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+
+                    <!-- Frontend -->
+                    <div class="skill-card glass-card p-6 rounded-2xl border border-white/10 hover:border-accent-500/50 transition-all cursor-pointer group" data-category="frontend" data-desc="React component architecture, state management, hooks, and dynamic UI rendering.">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-brands fa-react"></i>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500 uppercase">Frontend</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">React</h3>
+                        <p class="text-slate-400 text-sm">Component-driven interfaces, hooks, state management, and props architecture.</p>
+                        <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-accent-400 font-medium">
+                            <span>Click to Inspect</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+
+                    <div class="skill-card glass-card p-6 rounded-2xl border border-white/10 hover:border-accent-500/50 transition-all cursor-pointer group" data-category="frontend" data-desc="Next.js framework familiarity for server-side rendering, routing, and modern web application structure.">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-layer-group"></i>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500 uppercase">Frontend</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Next.js</h3>
+                        <p class="text-slate-400 text-sm">Modern application structure, routing paradigms, and rendering optimizations.</p>
+                        <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-accent-400 font-medium">
+                            <span>Click to Inspect</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+
+                    <div class="skill-card glass-card p-6 rounded-2xl border border-white/10 hover:border-accent-500/50 transition-all cursor-pointer group" data-category="frontend" data-desc="TypeScript integration for robust typing, enhanced code maintainability, and error prevention.">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500 uppercase">Frontend</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">TypeScript</h3>
+                        <p class="text-slate-400 text-sm">Type safety, interfaces, robust code architecture, and modern tooling.</p>
+                        <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-accent-400 font-medium">
+                            <span>Click to Inspect</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+
+                    <!-- Styling -->
+                    <div class="skill-card glass-card p-6 rounded-2xl border border-white/10 hover:border-accent-500/50 transition-all cursor-pointer group" data-category="styling" data-desc="Tailwind CSS utility-first framework for rapid, consistent, and highly customized modern UI styling.">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500 uppercase">Styling</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Tailwind CSS</h3>
+                        <p class="text-slate-400 text-sm">Utility-first styling, design system tokens, and responsive modifier classes.</p>
+                        <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-accent-400 font-medium">
+                            <span>Click to Inspect</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+
+                    <div class="skill-card glass-card p-6 rounded-2xl border border-white/10 hover:border-accent-500/50 transition-all cursor-pointer group" data-category="styling" data-desc="Crafting smooth animations, micro-interactions, and engaging visual transitions.">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-film"></i>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500 uppercase">Styling</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Animations & UI</h3>
+                        <p class="text-slate-400 text-sm">Smooth keyframe animations, glassmorphism, and polished user interactions.</p>
+                        <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-accent-400 font-medium">
+                            <span>Click to Inspect</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+
+                    <!-- Development -->
+                    <div class="skill-card glass-card p-6 rounded-2xl border border-white/10 hover:border-accent-500/50 transition-all cursor-pointer group" data-category="development" data-desc="RESTful API integration, asynchronous data fetching with Fetch/Axios, and dynamic rendering.">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-network-wired"></i>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500 uppercase">Development</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">API Integration</h3>
+                        <p class="text-slate-400 text-sm">Fetching endpoints, asynchronous workflows, and dynamic UI population.</p>
+                        <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-accent-400 font-medium">
+                            <span>Click to Inspect</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+
+                    <div class="skill-card glass-card p-6 rounded-2xl border border-white/10 hover:border-accent-500/50 transition-all cursor-pointer group" data-category="development" data-desc="Version control with Git, repository management, branching strategies, and collaborative workflows.">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-brands fa-git-alt"></i>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500 uppercase">Development</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Git & Version Control</h3>
+                        <p class="text-slate-400 text-sm">Source control, branching, merging, and collaborative code deployment.</p>
+                        <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-accent-400 font-medium">
+                            <span>Click to Inspect</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+
+                    <div class="skill-card glass-card p-6 rounded-2xl border border-white/10 hover:border-accent-500/50 transition-all cursor-pointer group" data-category="development" data-desc="Performance optimization including asset minimization, fast load times, and efficient DOM rendering.">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-gauge-high"></i>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500 uppercase">Development</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Performance Optimization</h3>
+                        <p class="text-slate-400 text-sm">Fast loading, efficient rendering, and optimized frontend assets.</p>
+                        <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-accent-400 font-medium">
+                            <span>Click to Inspect</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section id="services" class="py-24 relative bg-dark-800/50 border-t border-b border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <span class="text-accent-400 text-xs font-semibold tracking-widest uppercase">What I Offer</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">FRONTEND SERVICES</h2>
+                    <p class="text-slate-300 text-base sm:text-lg">
+                        Professional frontend engineering solutions tailored to elevate your web presence.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Service 1 -->
+                    <div class="glass-card p-6 rounded-2xl border border-white/10 hover:border-accent-500/50 transition-all group flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-accent-500/10 text-accent-400 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-3">Frontend Development</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Modern responsive interfaces using clean frontend technologies.</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-white/5">
+                            <a href="#contact" class="text-xs font-semibold text-accent-400 hover:text-accent-300 flex items-center gap-2">
+                                <span>Learn More</span>
+                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="glass-card p-6 rounded-2xl border border-white/10 hover:border-accent-500/50 transition-all group flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-mobile-screen"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-3">Responsive Web Design</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Websites optimized for desktop, tablet and mobile devices.</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-white/5">
+                            <a href="#contact" class="text-xs font-semibold text-accent-400 hover:text-accent-300 flex items-center gap-2">
+                                <span>Learn More</span>
+                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="glass-card p-6 rounded-2xl border border-white/10 hover:border-accent-500/50 transition-all group flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-window-maximize"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-3">Landing Page Development</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Modern conversion-focused landing page interfaces.</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-white/5">
+                            <a href="#contact" class="text-xs font-semibold text-accent-400 hover:text-accent-300 flex items-center gap-2">
+                                <span>Learn More</span>
+                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="glass-card p-6 rounded-2xl border border-white/10 hover:border-accent-500/50 transition-all group flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-building"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-3">Business Website Development</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Professional frontend websites for businesses and organizations.</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-white/5">
+                            <a href="#contact" class="text-xs font-semibold text-accent-400 hover:text-accent-300 flex items-center gap-2">
+                                <span>Learn More</span>
+                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="glass-card p-6 rounded-2xl border border-white/10 hover:border-accent-500/50 transition-all group flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-palette"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-3">UI Implementation</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Transforming designs and concepts into functional web interfaces.</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-white/5">
+                            <a href="#contact" class="text-xs font-semibold text-accent-400 hover:text-accent-300 flex items-center gap-2">
+                                <span>Learn More</span>
+                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service 6 -->
+                    <div class="glass-card p-6 rounded-2xl border border-white/10 hover:border-accent-500/50 transition-all group flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-3">Interactive Web Interfaces</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Animations, interactions, dynamic components and engaging experiences.</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-white/5">
+                            <a href="#contact" class="text-xs font-semibold text-accent-400 hover:text-accent-300 flex items-center gap-2">
+                                <span>Learn More</span>
+                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service 7 -->
+                    <div class="glass-card p-6 rounded-2xl border border-white/10 hover:border-accent-500/50 transition-all group flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-arrows-rotate"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-3">Website Redesign</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Modernizing outdated interfaces with improved visual structure and usability.</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-white/5">
+                            <a href="#contact" class="text-xs font-semibold text-accent-400 hover:text-accent-300 flex items-center gap-2">
+                                <span>Learn More</span>
+                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Service 8 -->
+                    <div class="glass-card p-6 rounded-2xl border border-white/10 hover:border-accent-500/50 transition-all group flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-gauge-high"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-3">Frontend Optimization</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Improving structure, responsiveness and overall frontend experience.</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-white/5">
+                            <a href="#contact" class="text-xs font-semibold text-accent-400 hover:text-accent-300 flex items-center gap-2">
+                                <span>Learn More</span>
+                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FRONTEND TECHNOLOGY LAB (FRONTEND LAB) -->
+        <section id="lab" class="py-24 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <span class="text-accent-400 text-xs font-semibold tracking-widest uppercase">Interactive UI Playground</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">FRONTEND LAB</h2>
+                    <p class="text-slate-300 text-base sm:text-lg">
+                        Explore interactive UI components and frontend design patterns built with pure HTML, CSS, and JavaScript.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <!-- Component selector list -->
+                    <div class="lg:col-span-4 space-y-2">
+                        <div class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-4 px-2">Select Component Concept:</div>
+                        <button class="lab-tab-btn w-full text-left px-5 py-3.5 rounded-xl font-medium text-sm flex items-center justify-between glass-panel border border-accent-500/50 text-white transition-all shadow-md" data-target="comp-navbar">
+                            <span>Responsive Navbar</span>
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                        <button class="lab-tab-btn w-full text-left px-5 py-3.5 rounded-xl font-medium text-sm flex items-center justify-between glass-panel border border-white/5 text-slate-300 hover:text-white hover:bg-white/5 transition-all" data-target="comp-hero">
+                            <span>Hero Component</span>
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                        <button class="lab-tab-btn w-full text-left px-5 py-3.5 rounded-xl font-medium text-sm flex items-center justify-between glass-panel border border-white/5 text-slate-300 hover:text-white hover:bg-white/5 transition-all" data-target="comp-pricing">
+                            <span>Pricing Card UI</span>
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                        <button class="lab-tab-btn w-full text-left px-5 py-3.5 rounded-xl font-medium text-sm flex items-center justify-between glass-panel border border-white/5 text-slate-300 hover:text-white hover:bg-white/5 transition-all" data-target="comp-dashboard">
+                            <span>Dashboard Card</span>
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                        <button class="lab-tab-btn w-full text-left px-5 py-3.5 rounded-xl font-medium text-sm flex items-center justify-between glass-panel border border-white/5 text-slate-300 hover:text-white hover:bg-white/5 transition-all" data-target="comp-login">
+                            <span>Login Form</span>
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                        <button class="lab-tab-btn w-full text-left px-5 py-3.5 rounded-xl font-medium text-sm flex items-center justify-between glass-panel border border-white/5 text-slate-300 hover:text-white hover:bg-white/5 transition-all" data-target="comp-product">
+                            <span>Product Card</span>
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                        <button class="lab-tab-btn w-full text-left px-5 py-3.5 rounded-xl font-medium text-sm flex items-center justify-between glass-panel border border-white/5 text-slate-300 hover:text-white hover:bg-white/5 transition-all" data-target="comp-modal">
+                            <span>Modal Window</span>
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                        <button class="lab-tab-btn w-full text-left px-5 py-3.5 rounded-xl font-medium text-sm flex items-center justify-between glass-panel border border-white/5 text-slate-300 hover:text-white hover:bg-white/5 transition-all" data-target="comp-notification">
+                            <span>Notification Component</span>
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                        <button class="lab-tab-btn w-full text-left px-5 py-3.5 rounded-xl font-medium text-sm flex items-center justify-between glass-panel border border-white/5 text-slate-300 hover:text-white hover:bg-white/5 transition-all" data-target="comp-grid">
+                            <span>Responsive Grid</span>
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                        <button class="lab-tab-btn w-full text-left px-5 py-3.5 rounded-xl font-medium text-sm flex items-center justify-between glass-panel border border-white/5 text-slate-300 hover:text-white hover:bg-white/5 transition-all" data-target="comp-button">
+                            <span>Interactive Button</span>
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                    </div>
+
+                    <!-- Component Live Preview Display -->
+                    <div class="lg:col-span-8">
+                        <div class="glass-card rounded-2xl p-6 sm:p-8 border border-white/10 min-h-[420px] flex flex-col justify-between">
+                            <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                                </div>
+                                <div id="lab-component-title" class="text-xs font-mono text-accent-400">Component Preview: Responsive Navbar</div>
+                            </div>
+
+                            <!-- Preview Screen -->
+                            <div id="lab-preview-container" class="py-12 px-6 rounded-xl bg-dark-900/60 border border-white/5 flex items-center justify-center">
+                                <!-- Dynamic Component Injected via JS -->
+                                <div class="w-full max-w-md p-4 rounded-xl glass-panel border border-white/10 flex items-center justify-between">
+                                    <span class="font-bold text-white">Brand.io</span>
+                                    <div class="hidden sm:flex gap-4 text-xs text-slate-300">
+                                        <span>Features</span>
+                                        <span>Pricing</span>
+                                        <span>Contact</span>
+                                    </div>
+                                    <button class="px-3 py-1.5 bg-accent-500 text-white text-xs rounded-lg">Sign Up</button>
+                                </div>
+                            </div>
+
+                            <!-- Component description footer -->
+                            <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-slate-400">
+                                <span>Built with clean HTML5, CSS3 & JavaScript</span>
+                                <span class="text-emerald-400 font-mono"><i class="fa-solid fa-circle-check"></i> Interactive Preview</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECT SHOWCASE SECTION -->
+        <section id="projects" class="py-24 relative bg-dark-800/50 border-t border-b border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <span class="text-accent-400 text-xs font-semibold tracking-widest uppercase">Selected Work</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">PROJECT SHOWCASE</h2>
+                    <p class="text-slate-300 text-base sm:text-lg">
+                        Conceptual frontend interface architectures and modern web applications.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="glass-card rounded-2xl overflow-hidden border border-white/10 flex flex-col justify-between group hover:border-accent-500/50 transition-all">
+                        <div class="p-6 bg-gradient-to-br from-indigo-950/60 to-dark-900/80 border-b border-white/5 relative">
+                            <div class="absolute top-4 right-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-accent-500/20 text-accent-400 border border-accent-500/30">Concept Project</span>
+                            </div>
+                            <div class="w-12 h-12 rounded-xl bg-accent-500/10 text-accent-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-globe"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Modern Business Website</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Responsive business website with modern layout, navigation and service sections.</p>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">HTML5</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">CSS3</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">JavaScript</span>
+                            </div>
+                            <button onclick="openProjectModal('Modern Business Website', 'Concept Project', 'Responsive business website with modern layout, navigation, and structured service sections designed for maximum conversion and clean readability across devices.', ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design'])" class="w-full py-3 rounded-xl text-center text-xs font-semibold text-white bg-white/10 hover:bg-accent-500 transition-colors flex items-center justify-center gap-2">
+                                <span>View Details</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="glass-card rounded-2xl overflow-hidden border border-white/10 flex flex-col justify-between group hover:border-accent-500/50 transition-all">
+                        <div class="p-6 bg-gradient-to-br from-purple-950/60 to-dark-900/80 border-b border-white/5 relative">
+                            <div class="absolute top-4 right-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-accent-500/20 text-accent-400 border border-accent-500/30">Concept Project</span>
+                            </div>
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-chart-pie"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">SaaS Dashboard</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Modern dashboard interface with cards, navigation and responsive layouts.</p>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">Tailwind CSS</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">JavaScript</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">UI Components</span>
+                            </div>
+                            <button onclick="openProjectModal('SaaS Dashboard', 'Concept Project', 'Modern dashboard interface featuring data widgets, sidebar navigation, modular cards, and fully responsive layouts for administrative analytics.', ['Tailwind CSS', 'JavaScript', 'UI Components', 'Charts'])" class="w-full py-3 rounded-xl text-center text-xs font-semibold text-white bg-white/10 hover:bg-accent-500 transition-colors flex items-center justify-center gap-2">
+                                <span>View Details</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="glass-card rounded-2xl overflow-hidden border border-white/10 flex flex-col justify-between group hover:border-accent-500/50 transition-all">
+                        <div class="p-6 bg-gradient-to-br from-emerald-950/60 to-dark-900/80 border-b border-white/5 relative">
+                            <div class="absolute top-4 right-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-accent-500/20 text-accent-400 border border-accent-500/30">Concept Project</span>
+                            </div>
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-bag-shopping"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">E-Commerce Interface</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Frontend shopping interface with product cards, filters and responsive design.</p>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">HTML5</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">CSS3</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">JavaScript</span>
+                            </div>
+                            <button onclick="openProjectModal('E-Commerce Interface', 'Concept Project', 'Frontend shopping interface featuring product cards, category filters, interactive cart drawer, and fully responsive grid architecture.', ['HTML5', 'CSS3', 'JavaScript', 'Filters'])" class="w-full py-3 rounded-xl text-center text-xs font-semibold text-white bg-white/10 hover:bg-accent-500 transition-colors flex items-center justify-center gap-2">
+                                <span>View Details</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="glass-card rounded-2xl overflow-hidden border border-white/10 flex flex-col justify-between group hover:border-accent-500/50 transition-all">
+                        <div class="p-6 bg-gradient-to-br from-sky-950/60 to-dark-900/80 border-b border-white/5 relative">
+                            <div class="absolute top-4 right-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-accent-500/20 text-accent-400 border border-accent-500/30">Concept Project</span>
+                            </div>
+                            <div class="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-pen-nib"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Creative Agency Website</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Visual agency website with animated sections and modern typography.</p>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">CSS Grid</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">Animations</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">Typography</span>
+                            </div>
+                            <button onclick="openProjectModal('Creative Agency Website', 'Concept Project', 'Visual agency website featuring smooth scroll reveals, modern typography hierarchies, creative CSS shapes, and striking visual layouts.', ['CSS Grid', 'Animations', 'Typography', 'HTML5'])" class="w-full py-3 rounded-xl text-center text-xs font-semibold text-white bg-white/10 hover:bg-accent-500 transition-colors flex items-center justify-center gap-2">
+                                <span>View Details</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="glass-card rounded-2xl overflow-hidden border border-white/10 flex flex-col justify-between group hover:border-accent-500/50 transition-all">
+                        <div class="p-6 bg-gradient-to-br from-amber-950/60 to-dark-900/80 border-b border-white/5 relative">
+                            <div class="absolute top-4 right-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-accent-500/20 text-accent-400 border border-accent-500/30">Concept Project</span>
+                            </div>
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Portfolio Website</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Personal portfolio interface with projects, skills and contact sections.</p>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">HTML5</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">Tailwind CSS</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">Vanilla JS</span>
+                            </div>
+                            <button onclick="openProjectModal('Portfolio Website', 'Concept Project', 'Personal portfolio interface highlighting professional skills, project showcases, interactive components, and fully validated contact workflow.', ['HTML5', 'Tailwind CSS', 'Vanilla JS'])" class="w-full py-3 rounded-xl text-center text-xs font-semibold text-white bg-white/10 hover:bg-accent-500 transition-colors flex items-center justify-center gap-2">
+                                <span>View Details</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="glass-card rounded-2xl overflow-hidden border border-white/10 flex flex-col justify-between group hover:border-accent-500/50 transition-all">
+                        <div class="p-6 bg-gradient-to-br from-rose-950/60 to-dark-900/80 border-b border-white/5 relative">
+                            <div class="absolute top-4 right-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-accent-500/20 text-accent-400 border border-accent-500/30">Concept Project</span>
+                            </div>
+                            <div class="w-12 h-12 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-rocket"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Landing Page</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Modern responsive landing page focused on strong visual hierarchy and CTA sections.</p>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">HTML5</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">CSS3</span>
+                                <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">Flexbox</span>
+                            </div>
+                            <button onclick="openProjectModal('Landing Page', 'Concept Project', 'Modern responsive landing page optimized for high conversion rates, strong visual hierarchy, engaging value propositions, and prominent CTA actions.', ['HTML5', 'CSS3', 'Flexbox', 'Responsive'])" class="w-full py-3 rounded-xl text-center text-xs font-semibold text-white bg-white/10 hover:bg-accent-500 transition-colors flex items-center justify-center gap-2">
+                                <span>View Details</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- UI SHOWCASE SECTION -->
+        <section id="ui-showcase" class="py-24 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <span class="text-accent-400 text-xs font-semibold tracking-widest uppercase">Visual Interface Collection</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">INTERFACE COLLECTION</h2>
+                    <p class="text-slate-300 text-base sm:text-lg">
+                        Polished frontend UI examples and modular design building blocks.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 sm:p-10 border border-white/10">
+                    <!-- Switcher Tabs -->
+                    <div id="ui-showcase-tabs" class="flex flex-wrap gap-2 pb-8 border-b border-white/10 mb-8">
+                        <button class="ui-tab-btn px-4 py-2 rounded-xl text-xs font-semibold bg-accent-500 text-white transition-all" data-ui="nav">Navigation</button>
+                        <button class="ui-tab-btn px-4 py-2 rounded-xl text-xs font-semibold glass-panel text-slate-300 hover:text-white transition-all" data-ui="hero">Hero Section</button>
+                        <button class="ui-tab-btn px-4 py-2 rounded-xl text-xs font-semibold glass-panel text-slate-300 hover:text-white transition-all" data-ui="cards">Cards</button>
+                        <button class="ui-tab-btn px-4 py-2 rounded-xl text-xs font-semibold glass-panel text-slate-300 hover:text-white transition-all" data-ui="buttons">Buttons</button>
+                        <button class="ui-tab-btn px-4 py-2 rounded-xl text-xs font-semibold glass-panel text-slate-300 hover:text-white transition-all" data-ui="forms">Forms</button>
+                        <button class="ui-tab-btn px-4 py-2 rounded-xl text-xs font-semibold glass-panel text-slate-300 hover:text-white transition-all" data-ui="dashboard">Dashboard</button>
+                        <button class="ui-tab-btn px-4 py-2 rounded-xl text-xs font-semibold glass-panel text-slate-300 hover:text-white transition-all" data-ui="faq">FAQ Component</button>
+                    </div>
+
+                    <!-- UI Display Screen -->
+                    <div id="ui-showcase-display" class="p-8 rounded-xl bg-dark-900/80 border border-white/5 min-h-[300px] flex items-center justify-center">
+                        <!-- Default Navigation UI View -->
+                        <div class="w-full max-w-xl p-6 rounded-2xl glass-panel border border-white/10 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-lg text-white">Ayan.dev</span>
+                                <div class="flex gap-4 text-xs text-slate-300 font-medium">
+                                    <span class="text-accent-400">Home</span>
+                                    <span>About</span>
+                                    <span>Services</span>
+                                    <span>Contact</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEVELOPMENT PROCESS SECTION -->
+        <section id="process" class="py-24 relative bg-dark-800/50 border-t border-b border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <span class="text-accent-400 text-xs font-semibold tracking-widest uppercase">Workflow & Execution</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">FROM DESIGN TO INTERFACE</h2>
+                    <p class="text-slate-300 text-base sm:text-lg">
+                        A systematic approach to delivering high-quality frontend experiences.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Step 01 -->
+                    <div class="glass-card p-6 rounded-2xl border border-white/10 relative group hover:border-accent-500/50 transition-all">
+                        <div class="text-4xl font-extrabold font-mono text-accent-500/30 mb-4">01</div>
+                        <h3 class="text-lg font-bold text-white mb-2">Understand</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Understand requirements, users and project goals.</p>
+                    </div>
+
+                    <!-- Step 02 -->
+                    <div class="glass-card p-6 rounded-2xl border border-white/10 relative group hover:border-accent-500/50 transition-all">
+                        <div class="text-4xl font-extrabold font-mono text-accent-500/30 mb-4">02</div>
+                        <h3 class="text-lg font-bold text-white mb-2">Structure</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Plan page structure, content hierarchy and components.</p>
+                    </div>
+
+                    <!-- Step 03 -->
+                    <div class="glass-card p-6 rounded-2xl border border-white/10 relative group hover:border-accent-500/50 transition-all">
+                        <div class="text-4xl font-extrabold font-mono text-accent-500/30 mb-4">03</div>
+                        <h3 class="text-lg font-bold text-white mb-2">Design</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Create a clear visual direction and responsive layout.</p>
+                    </div>
+
+                    <!-- Step 04 -->
+                    <div class="glass-card p-6 rounded-2xl border border-white/10 relative group hover:border-accent-500/50 transition-all">
+                        <div class="text-4xl font-extrabold font-mono text-accent-500/30 mb-4">04</div>
+                        <h3 class="text-lg font-bold text-white mb-2">Develop</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Convert the design into clean frontend code.</p>
+                    </div>
+
+                    <!-- Step 05 -->
+                    <div class="glass-card p-6 rounded-2xl border border-white/10 relative group hover:border-accent-500/50 transition-all">
+                        <div class="text-4xl font-extrabold font-mono text-accent-500/30 mb-4">05</div>
+                        <h3 class="text-lg font-bold text-white mb-2">Test</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Check responsiveness, interactions and browser behavior.</p>
+                    </div>
+
+                    <!-- Step 06 -->
+                    <div class="glass-card p-6 rounded-2xl border border-white/10 relative group hover:border-accent-500/50 transition-all">
+                        <div class="text-4xl font-extrabold font-mono text-accent-500/30 mb-4">06</div>
+                        <h3 class="text-lg font-bold text-white mb-2">Refine</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Improve usability, visuals and overall experience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY WORK WITH AYAN -->
+        <section class="py-24 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <span class="text-accent-400 text-xs font-semibold tracking-widest uppercase">Core Values</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">WHY WORK WITH AYAN</h2>
+                    <p class="text-slate-300 text-base sm:text-lg">
+                        Commitment to excellence in frontend engineering and user experience.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="glass-card p-6 rounded-2xl border border-white/10 flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-accent-500/10 text-accent-400 flex items-center justify-center shrink-0 mt-1">
+                            <i class="fa-solid fa-check text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-bold text-white mb-1">Clean Frontend Code</h3>
+                            <p class="text-slate-400 text-sm">Maintainable, structured, and readable codebase built to industry standards.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl border border-white/10 flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-accent-500/10 text-accent-400 flex items-center justify-center shrink-0 mt-1">
+                            <i class="fa-solid fa-check text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-bold text-white mb-1">Responsive-First Approach</h3>
+                            <p class="text-slate-400 text-sm">Interfaces meticulously designed to adapt seamlessly across all viewports.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl border border-white/10 flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-accent-500/10 text-accent-400 flex items-center justify-center shrink-0 mt-1">
+                            <i class="fa-solid fa-check text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-bold text-white mb-1">Modern Interface Design</h3>
+                            <p class="text-slate-400 text-sm">Contemporary styling, glassmorphism, and elegant visual hierarchy.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl border border-white/10 flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-accent-500/10 text-accent-400 flex items-center justify-center shrink-0 mt-1">
+                            <i class="fa-solid fa-check text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-bold text-white mb-1">Interactive Experiences</h3>
+                            <p class="text-slate-400 text-sm">Engaging micro-interactions, smooth transitions, and dynamic components.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl border border-white/10 flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-accent-500/10 text-accent-400 flex items-center justify-center shrink-0 mt-1">
+                            <i class="fa-solid fa-check text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-bold text-white mb-1">Attention to Visual Details</h3>
+                            <p class="text-slate-400 text-sm">Precise spacing, typography, and color harmony in every component.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl border border-white/10 flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-accent-500/10 text-accent-400 flex items-center justify-center shrink-0 mt-1">
+                            <i class="fa-solid fa-check text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-bold text-white mb-1">Performance-Conscious</h3>
+                            <p class="text-slate-400 text-sm">Optimized assets and lightweight code for lightning-fast load times.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE CODE EDITOR (PLAYGROUND) -->
+        <section class="py-24 relative bg-dark-800/50 border-t border-b border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <span class="text-accent-400 text-xs font-semibold tracking-widest uppercase">Live Sandbox</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">INTERACTIVE CODE EDITOR</h2>
+                    <p class="text-slate-300 text-base sm:text-lg">
+                        Test and inspect frontend code blocks across HTML, CSS, and JavaScript.
+                    </p>
+                </div>
+
+                <div class="max-w-4xl mx-auto glass-card rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
+                    <!-- Editor Header -->
+                    <div class="flex flex-wrap items-center justify-between p-4 bg-dark-900/90 border-b border-white/10">
+                        <div class="flex items-center gap-2">
+                            <button class="editor-tab px-4 py-1.5 rounded-lg text-xs font-mono font-semibold bg-accent-500 text-white transition-all" data-tab="html">HTML</button>
+                            <button class="editor-tab px-4 py-1.5 rounded-lg text-xs font-mono font-semibold glass-panel text-slate-300 hover:text-white transition-all" data-tab="css">CSS</button>
+                            <button class="editor-tab px-4 py-1.5 rounded-lg text-xs font-mono font-semibold glass-panel text-slate-300 hover:text-white transition-all" data-tab="js">JavaScript</button>
+                        </div>
+                        <div class="text-xs font-mono text-slate-400">Playground.js</div>
+                    </div>
+
+                    <!-- Editor Content Panel -->
+                    <div class="p-6 bg-dark-900/95 font-mono text-xs sm:text-sm text-slate-300 min-h-[180px] overflow-x-auto border-b border-white/10">
+                        <div id="editor-code-html" class="editor-content space-y-1">
+                            <span class="text-purple-400">&lt;section</span> <span class="text-sky-300">class</span>=<span class="text-emerald-300">"card"</span><span class="text-purple-400">&gt;</span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">&lt;h2&gt;</span>Hello World<span class="text-purple-400">&lt;/h2&gt;</span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">&lt;p&gt;</span>Frontend Experience<span class="text-purple-400">&lt;/p&gt;</span><br>
+                            <span class="text-purple-400">&lt;/section&gt;</span>
+                        </div>
+                        <div id="editor-code-css" class="editor-content hidden space-y-1">
+                            <span class="text-purple-300">.card</span> {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-sky-300">padding</span>: <span class="text-amber-300">30px</span>;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-sky-300">border-radius</span>: <span class="text-amber-300">20px</span>;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-sky-300">background</span>: <span class="text-emerald-300">linear-gradient(135deg, #1e293b, #0f172a)</span>;<br>
+                            }
+                        </div>
+                        <div id="editor-code-js" class="editor-content hidden space-y-1">
+                            <span class="text-purple-400">console</span>.<span class="text-yellow-300">log</span>(<span class="text-emerald-300">"Frontend Experience"</span>);<br>
+                            <span class="text-purple-400">const</span> ui = <span class="text-yellow-300">document</span>.<span class="text-yellow-300">querySelector</span>(<span class="text-emerald-300">'.card'</span>);<br>
+                            ui.<span class="text-yellow-300">style</span>.<span class="text-sky-300">borderColor</span> = <span class="text-emerald-300">'#6366f1'</span>;
+                        </div>
+                    </div>
+
+                    <!-- Live Output Preview -->
+                    <div class="p-6 bg-dark-800 flex items-center justify-center">
+                        <div class="p-6 rounded-2xl glass-panel border border-accent-500/30 text-center space-y-2 w-full max-w-sm">
+                            <h3 class="text-lg font-bold text-white">Hello World</h3>
+                            <p class="text-slate-400 text-xs">Frontend Experience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DESIGN PRINCIPLES SECTION -->
+        <section class="py-24 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <span class="text-accent-400 text-xs font-semibold tracking-widest uppercase">Frontend Philosophy</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">FRONTEND PRINCIPLES</h2>
+                    <p class="text-slate-300 text-base sm:text-lg">
+                        Click any principle card to reveal deeper engineering insights.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Principle 1 -->
+                    <div class="principle-card glass-card p-6 rounded-2xl border border-white/10 hover:border-accent-500/50 transition-all cursor-pointer group" data-title="Responsive" data-desc="Ensuring layouts dynamically adapt and maintain structural integrity across mobile, tablet, and widescreen desktop devices.">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono text-accent-400 uppercase">Principle 01</span>
+                            <i class="fa-solid fa-expand text-slate-500 group-hover:text-accent-400 transition-colors"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Responsive</h3>
+                        <p class="text-slate-400 text-sm">Fluid layouts designed for seamless multi-device compatibility.</p>
+                    </div>
+
+                    <!-- Principle 2 -->
+                    <div class="principle-card glass-card p-6 rounded-2xl border border-white/10 hover:border-accent-500/50 transition-all cursor-pointer group" data-title="Accessible" data-desc="Adhering to WCAG standards with proper semantic tags, ARIA attributes, and keyboard navigation support.">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono text-accent-400 uppercase">Principle 02</span>
+                            <i class="fa-solid fa-universal-access text-slate-500 group-hover:text-accent-400 transition-colors"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Accessible</h3>
+                        <p class="text-slate-400 text-sm">Inclusive user experiences built for all users and assistive technologies.</p>
+                    </div>
+
+                    <!-- Principle 3 -->
+                    <div class="principle-card glass-card p-6 rounded-2xl border border-white/10 hover:border-accent-500/50 transition-all cursor-pointer group" data-title="Consistent" data-desc="Maintaining cohesive design systems, typography scales, and color palettes throughout the interface.">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono text-accent-400 uppercase">Principle 03</span>
+                            <i class="fa-solid fa-sliders text-slate-500 group-hover:text-accent-400 transition-colors"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Consistent</h3>
+                        <p class="text-slate-400 text-sm">Harmonious design systems and predictable user interactions.</p>
+                    </div>
+
+                    <!-- Principle 4 -->
+                    <div class="principle-card glass-card p-6 rounded-2xl border border-white/10 hover:border-accent-500/50 transition-all cursor-pointer group" data-title="Interactive" data-desc="Enhancing usability with micro-animations, instant feedback states, and engaging UI transitions.">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono text-accent-400 uppercase">Principle 04</span>
+                            <i class="fa-solid fa-bolt text-slate-500 group-hover:text-accent-400 transition-colors"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Interactive</h3>
+                        <p class="text-slate-400 text-sm">Engaging feedback loops and smooth navigational micro-interactions.</p>
+                    </div>
+
+                    <!-- Principle 5 -->
+                    <div class="principle-card glass-card p-6 rounded-2xl border border-white/10 hover:border-accent-500/50 transition-all cursor-pointer group" data-title="Maintainable" data-desc="Writing modular, clean, and well-documented code that is easy to scale, refactor, and update.">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono text-accent-400 uppercase">Principle 05</span>
+                            <i class="fa-solid fa-code-branch text-slate-500 group-hover:text-accent-400 transition-colors"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Maintainable</h3>
+                        <p class="text-slate-400 text-sm">Modular component architecture built for long-term scalability.</p>
+                    </div>
+
+                    <!-- Principle 6 -->
+                    <div class="principle-card glass-card p-6 rounded-2xl border border-white/10 hover:border-accent-500/50 transition-all cursor-pointer group" data-title="Performance-aware" data-desc="Minimizing bundle sizes, optimizing DOM rendering, and ensuring lightning-fast page load speeds.">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono text-accent-400 uppercase">Principle 06</span>
+                            <i class="fa-solid fa-gauge text-slate-500 group-hover:text-accent-400 transition-colors"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Performance-aware</h3>
+                        <p class="text-slate-400 text-sm">Optimized rendering and fast load times for exceptional user retention.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section id="faq" class="py-24 relative bg-dark-800/50 border-t border-b border-white/5">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 space-y-4">
+                    <span class="text-accent-400 text-xs font-semibold tracking-widest uppercase">Common Inquiries</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">FREQUENTLY ASKED QUESTIONS</h2>
+                    <p class="text-slate-300 text-base sm:text-lg">
+                        Answers to common questions regarding my frontend development services.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item glass-card rounded-2xl border border-white/10 overflow-hidden transition-all">
+                        <button class="faq-btn w-full p-6 text-left flex items-center justify-between font-bold text-white hover:text-accent-400 transition-colors">
+                            <span>What type of frontend websites can you build?</span>
+                            <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-white/5 pt-4">
+                            I build modern business websites, responsive landing pages, e-commerce frontend interfaces, SaaS dashboards, and interactive web applications using HTML5, CSS3, and JavaScript.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="faq-item glass-card rounded-2xl border border-white/10 overflow-hidden transition-all">
+                        <button class="faq-btn w-full p-6 text-left flex items-center justify-between font-bold text-white hover:text-accent-400 transition-colors">
+                            <span>Can you create responsive websites?</span>
+                            <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-white/5 pt-4">
+                            Yes, all websites and interfaces I create are fully responsive, utilizing mobile-first design practices to ensure flawless adaptation across desktop, tablet, and mobile devices.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="faq-item glass-card rounded-2xl border border-white/10 overflow-hidden transition-all">
+                        <button class="faq-btn w-full p-6 text-left flex items-center justify-between font-bold text-white hover:text-accent-400 transition-colors">
+                            <span>Can you implement modern UI designs?</span>
+                            <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-white/5 pt-4">
+                            Absolutely. I specialize in translating design concepts into clean, production-ready frontend code featuring modern typography, glassmorphism, and elegant visual hierarchy.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="faq-item glass-card rounded-2xl border border-white/10 overflow-hidden transition-all">
+                        <button class="faq-btn w-full p-6 text-left flex items-center justify-between font-bold text-white hover:text-accent-400 transition-colors">
+                            <span>Can you build interactive interfaces?</span>
+                            <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-white/5 pt-4">
+                            Yes, I implement dynamic components, smooth animations, accordion menus, tabs, modals, and responsive navigation systems using Vanilla JavaScript.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="faq-item glass-card rounded-2xl border border-white/10 overflow-hidden transition-all">
+                        <button class="faq-btn w-full p-6 text-left flex items-center justify-between font-bold text-white hover:text-accent-400 transition-colors">
+                            <span>Can you work with JavaScript?</span>
+                            <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-white/5 pt-4">
+                            Yes, I utilize Vanilla JavaScript (ES6+) extensively for DOM manipulation, form validation, event handling, and interactive user experiences without unnecessary libraries.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 6 -->
+                    <div class="faq-item glass-card rounded-2xl border border-white/10 overflow-hidden transition-all">
+                        <button class="faq-btn w-full p-6 text-left flex items-center justify-between font-bold text-white hover:text-accent-400 transition-colors">
+                            <span>Can you integrate APIs on the frontend?</span>
+                            <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-white/5 pt-4">
+                            Yes, I handle asynchronous API requests using Fetch/Axios to dynamically populate UI components with real-time data.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 7 -->
+                    <div class="faq-item glass-card rounded-2xl border border-white/10 overflow-hidden transition-all">
+                        <button class="faq-btn w-full p-6 text-left flex items-center justify-between font-bold text-white hover:text-accent-400 transition-colors">
+                            <span>Can you create landing pages?</span>
+                            <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-white/5 pt-4">
+                            Yes, I design and develop conversion-focused landing pages optimized for fast load speeds, engaging storytelling, and clear calls to action.
+                        </div>
+                    </div>
+
+                    <!-- FAQ 8 -->
+                    <div class="faq-item glass-card rounded-2xl border border-white/10 overflow-hidden transition-all">
+                        <button class="faq-btn w-full p-6 text-left flex items-center justify-between font-bold text-white hover:text-accent-400 transition-colors">
+                            <span>How can I contact Ayan Fareed?</span>
+                            <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-white/5 pt-4">
+                            You can reach me via phone at 03042207229, via WhatsApp at +92 304 2207229, by email at ayan.frontend@gmail.com, or through the contact form on this website.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION (ZERO IMAGES AS REQUESTED) -->
+        <section id="contact" class="py-24 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <span class="text-accent-400 text-xs font-semibold tracking-widest uppercase">Get in Touch</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">LET'S CREATE SOMETHING GREAT</h2>
+                    <p class="text-slate-300 text-base sm:text-lg">
+                        Have a website idea or frontend project in mind? Let's discuss the interface, requirements and next steps.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    <!-- Contact Info Cards -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="glass-card p-6 rounded-2xl border border-white/10 flex items-center gap-5">
+                            <div class="w-12 h-12 rounded-xl bg-accent-500/10 text-accent-400 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 uppercase font-mono">Direct Phone</div>
+                                <a href="tel:03042207229" class="text-lg font-bold text-white hover:text-accent-400 transition-colors font-mono">03042207229</a>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-2xl border border-white/10 flex items-center gap-5">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 uppercase font-mono">WhatsApp</div>
+                                <a href="https://wa.me/923042207229" target="_blank" rel="noopener noreferrer" class="text-lg font-bold text-white hover:text-emerald-400 transition-colors font-mono">+92 304 2207229</a>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-2xl border border-white/10 flex items-center gap-5">
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 uppercase font-mono">Email Address</div>
+                                <a href="mailto:ayan.frontend@gmail.com" class="text-sm sm:text-base font-bold text-white hover:text-purple-400 transition-colors font-mono">ayan.frontend@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-4 pt-2">
+                            <a href="tel:03042207229" class="flex-1 py-3 rounded-xl text-center font-semibold text-white bg-accent-500 hover:bg-accent-600 transition-colors text-sm">
+                                Call Ayan
+                            </a>
+                            <a href="https://wa.me/923042207229" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 rounded-xl text-center font-semibold text-emerald-400 glass-panel hover:bg-emerald-500/10 border border-emerald-500/20 transition-colors text-sm flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                            </a>
+                            <a href="mailto:ayan.frontend@gmail.com" class="w-full py-3 rounded-xl text-center font-semibold text-slate-200 glass-panel hover:bg-white/10 border border-white/10 transition-colors text-sm flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-envelope"></i> Send Email
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="lg:col-span-7">
+                        <div class="glass-card rounded-2xl p-6 sm:p-8 border border-white/10">
+                            <form id="contact-form" class="space-y-6">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                    <div class="space-y-2">
+                                        <label for="name" class="block text-xs font-mono uppercase text-slate-300">Your Name *</label>
+                                        <input type="text" id="name" required class="w-full px-4 py-3 rounded-xl bg-dark-900 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-accent-500 transition-colors text-sm" placeholder="Enter your name">
+                                    </div>
+                                    <div class="space-y-2">
+                                        <label for="email" class="block text-xs font-mono uppercase text-slate-300">Your Email *</label>
+                                        <input type="email" id="email" required class="w-full px-4 py-3 rounded-xl bg-dark-900 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-accent-500 transition-colors text-sm" placeholder="Enter your email">
+                                    </div>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="project-type" class="block text-xs font-mono uppercase text-slate-300">Project Type *</label>
+                                    <select id="project-type" required class="w-full px-4 py-3 rounded-xl bg-dark-900 border border-white/10 text-white focus:outline-none focus:border-accent-500 transition-colors text-sm">
+                                        <option value="" disabled selected>Select project type</option>
+                                        <option value="Frontend Development">Frontend Development</option>
+                                        <option value="Responsive Web Design">Responsive Web Design</option>
+                                        <option value="Landing Page">Landing Page</option>
+                                        <option value="Business Website">Business Website</option>
+                                        <option value="UI Implementation">UI Implementation</option>
+                                        <option value="Other">Other Frontend Inquiry</option>
+                                    </select>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <label for="message" class="block text-xs font-mono uppercase text-slate-300">Message *</label>
+                                    <textarea id="message" rows="4" required class="w-full px-4 py-3 rounded-xl bg-dark-900 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-accent-500 transition-colors text-sm" placeholder="Describe your project or requirements..."></textarea>
+                                </div>
+
+                                <button type="submit" class="w-full py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-accent-500 to-purple-600 hover:from-accent-600 hover:to-purple-700 shadow-xl shadow-accent-500/25 transition-all flex items-center justify-center gap-2">
+                                    <span>Send Message via WhatsApp / Email</span>
+                                    <i class="fa-solid fa-paper-plane text-xs"></i>
+                                </button>
+
+                                <div id="form-success-msg" class="hidden p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm text-center">
+                                    Form validated successfully! Opening WhatsApp / Email client to send your message to Ayan Fareed...
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA SECTION -->
+        <section class="py-20 relative bg-gradient-to-b from-dark-900 to-accent-950/30 border-t border-white/5">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">
+                    YOUR NEXT INTERFACE STARTS HERE.
+                </h2>
+                <p class="text-slate-300 text-lg max-w-2xl mx-auto">
+                    Let's turn your idea into a clean, responsive and engaging frontend experience.
+                </p>
+                <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+                    <a href="#contact" class="px-8 py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-accent-500 to-purple-600 hover:from-accent-600 hover:to-purple-700 shadow-xl shadow-accent-500/30 transition-all">
+                        Start a Conversation
+                    </a>
+                    <a href="https://wa.me/923042207229" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-xl font-semibold text-emerald-400 glass-panel hover:bg-emerald-500/10 border border-emerald-500/20 transition-all flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>WhatsApp Ayan</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark-900 border-t border-white/10 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div class="space-y-4">
+                    <a href="#home" class="text-2xl font-extrabold tracking-tight flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-accent-500"></span>
+                        <span class="gradient-text">Ayan.dev</span>
+                    </a>
+                    <p class="text-slate-400 text-sm">
+                        Frontend Developer specializing in responsive websites, modern UI implementation, and clean code architectures.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#home" class="hover:text-accent-400 transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-accent-400 transition-colors">About</a></li>
+                        <li><a href="#skills" class="hover:text-accent-400 transition-colors">Skills</a></li>
+                        <li><a href="#services" class="hover:text-accent-400 transition-colors">Services</a></li>
+                        <li><a href="#projects" class="hover:text-accent-400 transition-colors">Projects</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><span class="hover:text-accent-400 transition-colors">Frontend Development</span></li>
+                        <li><span class="hover:text-accent-400 transition-colors">Responsive Web Design</span></li>
+                        <li><span class="hover:text-accent-400 transition-colors">Landing Page Development</span></li>
+                        <li><span class="hover:text-accent-400 transition-colors">UI Implementation</span></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Contact Info</h4>
+                    <ul class="space-y-3 text-sm text-slate-400 font-mono">
+                        <li><a href="tel:03042207229" class="hover:text-accent-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-phone text-accent-500"></i> 03042207229</a></li>
+                        <li><a href="https://wa.me/923042207229" target="_blank" rel="noopener noreferrer" class="hover:text-accent-400 transition-colors flex items-center gap-2"><i class="fa-brands fa-whatsapp text-emerald-400"></i> +92 304 2207229</a></li>
+                        <li><a href="mailto:ayan.frontend@gmail.com" class="hover:text-accent-400 transition-colors flex items-center gap-2 text-xs sm:text-sm"><i class="fa-solid fa-envelope text-purple-400"></i> ayan.frontend@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <div>&copy; <span id="current-year">2026</span> Ayan Fareed. All Rights Reserved.</div>
+                <div class="flex items-center gap-4">
+                    <a href="#home" class="hover:text-slate-400 transition-colors">Back to top <i class="fa-solid fa-arrow-up ml-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PROJECT MODAL -->
+    <div id="project-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-dark-900/80 backdrop-blur-md">
+        <div class="glass-card max-w-lg w-full p-6 sm:p-8 rounded-2xl border border-white/10 relative space-y-6 shadow-2xl">
+            <button onclick="closeProjectModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <div>
+                <span id="modal-tag" class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-accent-500/20 text-accent-400 border border-accent-500/30">Concept Project</span>
+                <h3 id="modal-title" class="text-2xl font-bold text-white mt-3">Project Title</h3>
+            </div>
+            <p id="modal-desc" class="text-slate-300 text-sm leading-relaxed">
+                Project description goes here...
+            </p>
+            <div class="space-y-2">
+                <div class="text-xs font-mono uppercase text-slate-400">Technologies Used:</div>
+                <div id="modal-tech" class="flex flex-wrap gap-2">
+                    <!-- Tech badges inserted via JS -->
+                </div>
+            </div>
+            <div class="pt-4 border-t border-white/10 flex justify-end gap-3">
+                <button onclick="closeProjectModal()" class="px-5 py-2.5 rounded-xl text-xs font-semibold text-slate-300 glass-panel hover:bg-white/10 transition-colors">
+                    Close
+                </button>
+                <a href="#contact" onclick="closeProjectModal()" class="px-5 py-2.5 rounded-xl text-xs font-semibold text-white bg-accent-500 hover:bg-accent-600 transition-colors">
+                    Inquire Similar Project
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- SKILL INSPECT MODAL -->
+    <div id="skill-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-dark-900/80 backdrop-blur-md">
+        <div class="glass-card max-w-md w-full p-6 rounded-2xl border border-white/10 relative space-y-4 shadow-2xl">
+            <button onclick="closeSkillModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <h3 id="skill-modal-title" class="text-xl font-bold text-white">Skill Title</h3>
+            <p id="skill-modal-desc" class="text-slate-300 text-sm leading-relaxed">Detailed explanation...</p>
+            <div class="pt-4 border-t border-white/10 flex justify-end">
+                <button onclick="closeSkillModal()" class="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-accent-500 hover:bg-accent-600 transition-colors">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRINCIPLE INSPECT MODAL -->
+    <div id="principle-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-dark-900/80 backdrop-blur-md">
+        <div class="glass-card max-w-md w-full p-6 rounded-2xl border border-white/10 relative space-y-4 shadow-2xl">
+            <button onclick="closePrincipleModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <h3 id="principle-modal-title" class="text-xl font-bold text-white">Principle Title</h3>
+            <p id="principle-modal-desc" class="text-slate-300 text-sm leading-relaxed">Detailed principle explanation...</p>
+            <div class="pt-4 border-t border-white/10 flex justify-end">
+                <button onclick="closePrincipleModal()" class="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-accent-500 hover:bg-accent-600 transition-colors">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FUNCTIONALITY -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Current Year in Footer
+            const yearSpan = document.getElementById('current-year');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+
+            // 2. Mobile Navigation Toggle
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+
+            // 3. Sticky Navbar Shadow on Scroll & Active Section Highlighting
+            const navbar = document.getElementById('navbar');
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    navbar.classList.add('shadow-xl', 'bg-dark-950/90');
+                } else {
+                    navbar.classList.remove('shadow-xl', 'bg-dark-950/90');
+                }
+
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.pageYOffset >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('text-accent-400', 'font-bold');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('text-accent-400', 'font-bold');
+                    }
+                });
+            });
+
+            // 4. Skills Filter
+            const filterBtns = document.querySelectorAll('.skill-filter-btn');
+            const skillCards = document.querySelectorAll('.skill-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => {
+                        b.classList.remove('bg-accent-500', 'text-white', 'shadow-lg', 'shadow-accent-500/25');
+                        b.classList.add('glass-panel', 'text-slate-300');
+                    });
+                    btn.classList.remove('glass-panel', 'text-slate-300');
+                    btn.classList.add('bg-accent-500', 'text-white', 'shadow-lg', 'shadow-accent-500/25');
+
+                    const filter = btn.getAttribute('data-filter');
+                    skillCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Skills Click Modal
+            skillCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const title = card.querySelector('h3').textContent;
+                    const desc = card.getAttribute('data-desc');
+                    document.getElementById('skill-modal-title').textContent = title;
+                    document.getElementById('skill-modal-desc').textContent = desc;
+                    document.getElementById('skill-modal').classList.remove('hidden');
+                    document.getElementById('skill-modal').classList.add('flex');
+                });
+            });
+
+            // 5. Frontend Lab Component Switcher
+            const labTabs = document.querySelectorAll('.lab-tab-btn');
+            const labTitle = document.getElementById('lab-component-title');
+            const labPreview = document.getElementById('lab-preview-container');
+
+            const labComponents = {
+                'comp-navbar': {
+                    title: 'Component Preview: Responsive Navbar',
+                    html: `<div class="w-full max-w-md p-4 rounded-xl glass-panel border border-white/10 flex items-center justify-between"><span class="font-bold text-white">Brand.io</span><div class="hidden sm:flex gap-4 text-xs text-slate-300"><span>Features</span><span>Pricing</span><span>Contact</span></div><button class="px-3 py-1.5 bg-accent-500 text-white text-xs rounded-lg">Sign Up</button></div>`
+                },
+                'comp-hero': {
+                    title: 'Component Preview: Hero Component',
+                    html: `<div class="w-full max-w-md p-6 rounded-xl glass-panel border border-white/10 text-center space-y-3"><span class="text-xs text-accent-400 font-mono">NEW RELEASE</span><h4 class="text-lg font-bold text-white">Build Fast Interfaces</h4><p class="text-xs text-slate-400">Clean HTML, CSS & JS components ready for deployment.</p><button class="px-4 py-2 bg-accent-500 text-white text-xs rounded-lg font-medium">Get Started</button></div>`
+                },
+                'comp-pricing': {
+                    title: 'Component Preview: Pricing Card UI',
+                    html: `<div class="w-full max-w-xs p-6 rounded-xl glass-panel border border-accent-500/40 text-center space-y-4"><div class="text-xs font-mono text-accent-400">PRO PLAN</div><div class="text-2xl font-bold text-white">$49<span class="text-xs text-slate-400 font-normal">/mo</span></div><p class="text-xs text-slate-300">Advanced frontend components & responsive layouts.</p><button class="w-full py-2 bg-accent-500 text-white text-xs rounded-lg font-semibold">Choose Plan</button></div>`
+                },
+                'comp-dashboard': {
+                    title: 'Component Preview: Dashboard Card',
+                    html: `<div class="w-full max-w-sm p-5 rounded-xl glass-panel border border-white/10 flex items-center justify-between"><div class="space-y-1"><div class="text-xs text-slate-400">Total Visits</div><div class="text-xl font-bold text-white">24,892</div><div class="text-xs text-emerald-400">+12% this week</div></div><div class="w-10 h-10 rounded-xl bg-accent-500/20 text-accent-400 flex items-center justify-center"><i class="fa-solid fa-chart-line"></i></div></div>`
+                },
+                'comp-login': {
+                    title: 'Component Preview: Login Form',
+                    html: `<div class="w-full max-w-sm p-6 rounded-xl glass-panel border border-white/10 space-y-4"><h4 class="font-bold text-white text-sm">Sign In</h4><input type="email" placeholder="Email address" class="w-full px-3 py-2 rounded-lg bg-dark-900 border border-white/10 text-xs text-white" disabled><input type="password" placeholder="Password" class="w-full px-3 py-2 rounded-lg bg-dark-900 border border-white/10 text-xs text-white" disabled><button class="w-full py-2 bg-accent-500 text-white text-xs rounded-lg font-semibold">Login</button></div>`
+                },
+                'comp-product': {
+                    title: 'Component Preview: Product Card',
+                    html: `<div class="w-full max-w-xs p-4 rounded-xl glass-panel border border-white/10 space-y-3"><div class="h-28 rounded-lg bg-gradient-to-tr from-accent-500/20 to-purple-600/20 flex items-center justify-center text-accent-400 font-mono text-xs">Product Preview</div><div class="flex justify-between items-center"><span class="font-bold text-white text-sm">UI Kit Pro</span><span class="text-emerald-400 text-xs font-mono">$29</span></div><button class="w-full py-2 bg-white/10 hover:bg-accent-500 text-white text-xs rounded-lg transition-colors">Add to Cart</button></div>`
+                },
+                'comp-modal': {
+                    title: 'Component Preview: Modal Window',
+                    html: `<div class="w-full max-w-xs p-5 rounded-xl glass-panel border border-white/10 text-center space-y-3"><h4 class="font-bold text-white text-sm">Are you sure?</h4><p class="text-xs text-slate-400">This action will update your frontend configuration.</p><div class="flex gap-2"><button class="flex-1 py-1.5 bg-white/10 text-white text-xs rounded-lg">Cancel</button><button class="flex-1 py-1.5 bg-accent-500 text-white text-xs rounded-lg">Confirm</button></div></div>`
+                },
+                'comp-notification': {
+                    title: 'Component Preview: Notification Component',
+                    html: `<div class="w-full max-w-sm p-4 rounded-xl glass-panel border border-emerald-500/30 bg-emerald-500/5 flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0"><i class="fa-solid fa-check text-xs"></i></div><div class="text-xs"><div class="font-bold text-white">Success!</div><div class="text-slate-300">Changes saved to deployment pipeline.</div></div></div>`
+                },
+                'comp-grid': {
+                    title: 'Component Preview: Responsive Grid',
+                    html: `<div class="w-full max-w-md grid grid-cols-3 gap-2"><div class="p-4 rounded-lg glass-panel text-center text-xs text-accent-400 font-bold">Col 1</div><div class="p-4 rounded-lg glass-panel text-center text-xs text-purple-400 font-bold">Col 2</div><div class="p-4 rounded-lg glass-panel text-center text-xs text-emerald-400 font-bold">Col 3</div></div>`
+                },
+                'comp-button': {
+                    title: 'Component Preview: Interactive Button',
+                    html: `<div class="w-full max-w-xs text-center space-y-3"><button class="px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-accent-500 to-purple-600 shadow-lg shadow-accent-500/25 hover:scale-105 transition-transform text-xs">Hover & Click Me</button></div>`
+                }
+            };
+
+            labTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    labTabs.forEach(t => {
+                        t.classList.remove('bg-accent-500', 'text-white');
+                        t.classList.add('glass-panel', 'text-slate-300');
+                    });
+                    tab.classList.remove('glass-panel', 'text-slate-300');
+                    tab.classList.add('bg-accent-500', 'text-white');
+
+                    const target = tab.getAttribute('data-target');
+                    if (labComponents[target]) {
+                        labTitle.textContent = labComponents[target].title;
+                        labPreview.innerHTML = labComponents[target].html;
+                    }
+                });
+            });
+
+            // 6. UI Showcase Tabs
+            const uiTabs = document.querySelectorAll('.ui-tab-btn');
+            const uiDisplay = document.getElementById('ui-showcase-display');
+
+            const uiCollections = {
+                'nav': `<div class="w-full max-w-xl p-6 rounded-2xl glass-panel border border-white/10 space-y-4"><div class="flex items-center justify-between"><span class="font-bold text-lg text-white">Ayan.dev</span><div class="flex gap-4 text-xs text-slate-300 font-medium"><span class="text-accent-400">Home</span><span>About</span><span>Services</span><span>Contact</span></div></div></div>`,
+                'hero': `<div class="w-full max-w-xl p-6 rounded-2xl glass-panel border border-white/10 text-center space-y-4"><span class="text-xs px-3 py-1 rounded-full bg-accent-500/20 text-accent-400">FRONTEND DEVELOPER</span><h3 class="text-2xl font-bold text-white">CRAFTING MODERN INTERFACES</h3><p class="text-xs text-slate-400">Responsive websites built with clean HTML5, CSS3, and JavaScript.</p></div>`,
+                'cards': `<div class="w-full max-w-md grid grid-cols-2 gap-4"><div class="p-4 rounded-xl glass-panel text-center"><div class="font-bold text-white text-sm mb-1">Card One</div><div class="text-xs text-slate-400">Responsive Layout</div></div><div class="p-4 rounded-xl glass-panel text-center"><div class="font-bold text-white text-sm mb-1">Card Two</div><div class="text-xs text-slate-400">Clean UI Design</div></div></div>`,
+                'buttons': `<div class="w-full max-w-md flex flex-wrap justify-center gap-4"><button class="px-5 py-2.5 rounded-xl bg-accent-500 text-white text-xs font-semibold">Primary CTA</button><button class="px-5 py-2.5 rounded-xl glass-panel text-white text-xs font-semibold">Secondary CTA</button></div>`,
+                'forms': `<div class="w-full max-w-md p-4 rounded-xl glass-panel space-y-3"><input type="text" placeholder="Your Name" class="w-full px-3 py-2 rounded-lg bg-dark-900 border border-white/10 text-xs text-white" disabled><input type="email" placeholder="Your Email" class="w-full px-3 py-2 rounded-lg bg-dark-900 border border-white/10 text-xs text-white" disabled></div>`,
+                'dashboard': `<div class="w-full max-w-md p-5 rounded-xl glass-panel flex items-center justify-between"><div class="space-y-1"><div class="text-xs text-slate-400">Active Sessions</div><div class="text-xl font-bold text-white">1,482</div></div><div class="w-10 h-10 rounded-xl bg-accent-500/20 text-accent-400 flex items-center justify-center"><i class="fa-solid fa-users"></i></div></div>`,
+                'faq': `<div class="w-full max-w-md p-4 rounded-xl glass-panel space-y-2"><div class="flex justify-between items-center text-xs font-bold text-white"><span>Can you build responsive sites?</span><i class="fa-solid fa-chevron-down text-accent-400"></i></div><div class="text-xs text-slate-400">Yes, all websites are fully responsive.</div></div>`
+            };
+
+            uiTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    uiTabs.forEach(t => {
+                        t.classList.remove('bg-accent-500', 'text-white');
+                        t.classList.add('glass-panel', 'text-slate-300');
+                    });
+                    tab.classList.remove('glass-panel', 'text-slate-300');
+                    tab.classList.add('bg-accent-500', 'text-white');
+
+                    const key = tab.getAttribute('data-ui');
+                    if (uiCollections[key]) {
+                        uiDisplay.innerHTML = uiCollections[key];
+                    }
+                });
+            });
+
+            // 7. Interactive Code Editor Tabs
+            const editorTabs = document.querySelectorAll('.editor-tab');
+            const editorContents = document.querySelectorAll('.editor-content');
+
+            editorTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    editorTabs.forEach(t => {
+                        t.classList.remove('bg-accent-500', 'text-white');
+                        t.classList.add('glass-panel', 'text-slate-300');
+                    });
+                    tab.classList.remove('glass-panel', 'text-slate-300');
+                    tab.classList.add('bg-accent-500', 'text-white');
+
+                    const targetTab = tab.getAttribute('data-tab');
+                    editorContents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    document.getElementById(`editor-code-${targetTab}`).classList.remove('hidden');
+                });
+            });
+
+            // 8. Design Principles Modal
+            const principleCards = document.querySelectorAll('.principle-card');
+            principleCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const title = card.getAttribute('data-title');
+                    const desc = card.getAttribute('data-desc');
+                    document.getElementById('principle-modal-title').textContent = title;
+                    document.getElementById('principle-modal-desc').textContent = desc;
+                    document.getElementById('principle-modal').classList.remove('hidden');
+                    document.getElementById('principle-modal').classList.add('flex');
+                });
+            });
+
+            // 9. FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const btn = item.querySelector('.faq-btn');
+                const content = item.querySelector('.faq-content');
+                const icon = btn.querySelector('fa-chevron-down') || btn.querySelector('i');
+
+                btn.addEventListener('click', () => {
+                    const isOpen = !content.classList.contains('hidden');
+                    
+                    // Close all
+                    faqItems.forEach(i => {
+                        i.querySelector('.faq-content').classList.add('hidden');
+                        const ic = i.querySelector('.faq-btn i');
+                        if (ic) ic.style.transform = 'rotate(0deg)';
+                    });
+
+                    if (isOpen) {
+                        content.classList.add('hidden');
+                        if (icon) icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        content.classList.remove('hidden');
+                        if (icon) icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+
+            // 10. Contact Form Validation & WhatsApp/Email Redirection
+            const contactForm = document.getElementById('contact-form');
+            const successMsg = document.getElementById('form-success-msg');
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const name = document.getElementById('name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const projectType = document.getElementById('project-type').value;
+                    const message = document.getElementById('message').value.trim();
+
+                    if (!name || !email || !projectType || !message) {
+                        alert('Please fill in all required fields.');
+                        return;
+                    }
+
+                    successMsg.classList.remove('hidden');
+
+                    // Construct WhatsApp message URL
+                    const whatsappText = `Hello Ayan Fareed,\n\nMy name is ${name} (${email}).\nProject Type: ${projectType}\nMessage: ${message}`;
+                    const encodedText = encodeURIComponent(whatsappText);
+                    const whatsappUrl = `https://wa.me/923042207229?text=${encodedText}`;
+
+                    setTimeout(() => {
+                        window.open(whatsappUrl, '_blank');
+                    }, 1500);
+                });
+            }
+        });
+
+        // Global Modal Functions
+        function openProjectModal(title, tag, desc, techArray) {
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-tag').textContent = tag;
+            document.getElementById('modal-desc').textContent = desc;
+            
+            const techContainer = document.getElementById('modal-tech');
+            techContainer.innerHTML = '';
+            techArray.forEach(t => {
+                const span = document.createElement('span');
+                span.className = 'px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300';
+                span.textContent = t;
+                techContainer.appendChild(span);
+            });
+
+            document.getElementById('project-modal').classList.remove('hidden');
+            document.getElementById('project-modal').classList.add('flex');
+        }
+
+        function closeProjectModal() {
+            document.getElementById('project-modal').classList.add('hidden');
+            document.getElementById('project-modal').classList.remove('flex');
+        }
+
+        function closeSkillModal() {
+            document.getElementById('skill-modal').classList.add('hidden');
+            document.getElementById('skill-modal').classList.remove('flex');
+        }
+
+        function closePrincipleModal() {
+            document.getElementById('principle-modal').classList.add('hidden');
+            document.getElementById('principle-modal').classList.remove('flex');
+        }
+    </script>
+</body>
+</html>
