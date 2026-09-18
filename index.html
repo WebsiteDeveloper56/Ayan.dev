@@ -117,6 +117,76 @@
             animation: pulseGlow 4s ease-in-out infinite;
         }
 
+        section[id] { scroll-margin-top: 96px; }
+        a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline: 2px solid #a5b4fc !important; outline-offset: 5px; }
+        input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid #818cf8; outline-offset: 2px; }
+        .grid > *, .project-card, #contact .glass-card > div { min-width: 0; }
+        a[href^="mailto:"], #home .font-mono, #contact a { overflow-wrap: anywhere; }
+        #mobile-menu { max-height: calc(100dvh - 80px); overflow-y: auto; }
+        #home h1 { font-size: clamp(2.65rem, 4.8vw, 4.5rem); line-height: 1.08; }
+        .project-card { transition: transform 0.25s, border-color 0.25s; }
+        .project-card[hidden] { display: none !important; }
+        body:has(dialog[open]) { overflow: hidden; }
+        .project-card:hover, .project-card:focus-within { transform: translateY(-5px); border-color: #818cf8; }
+        .work-note { color: #94a3b8; font-size: 0.8rem; text-align: center; margin: -28px auto 24px; max-width: 650px; }
+        .work-filters { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+        .work-filters button { border: 1px solid #334155; border-radius: 30px; padding: 9px 18px; font-size: 0.8rem; color: #cbd5e1; }
+        .work-filters button[aria-pressed="true"] { background: #6366f1; border-color: #6366f1; color: white; }
+        .work-preview { --work-accent: #4f46e5; background: #f8fafc; color: #172033; border: 1px solid #cbd5e1; border-radius: 10px; height: 200px; overflow: hidden; margin-bottom: 24px; box-shadow: 0 16px 32px #02061755; }
+        .work-bar { display: flex; align-items: center; gap: 4px; background: #e2e8f0; padding: 9px 12px; }
+        .work-bar i { width: 5px; height: 5px; background: #94a3b8; border-radius: 50%; }
+        .work-bar span { margin: auto; color: #64748b; font: 7px 'Fira Code', monospace; letter-spacing: 1px; }
+        .work-nav { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 12px; border-bottom: 1px solid #e2e8f0; }
+        .work-nav b { color: var(--work-accent); font-size: 10px; letter-spacing: 1px; }
+        .work-nav span { font-size: 6px; color: #64748b; }
+        .work-hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 10px; align-items: center; padding: 14px; }
+        .work-hero small { color: var(--work-accent); text-transform: uppercase; font-size: 6px; letter-spacing: 0.8px; }
+        .work-hero strong { display: block; margin: 6px 0 10px; font-size: 17px; letter-spacing: -0.6px; line-height: 1.15; }
+        .work-cta { display: inline-block; padding: 5px 8px; border-radius: 4px; background: var(--work-accent); color: white; font-size: 6px; }
+        .work-shape { height: 100px; border-radius: 10px 40px 10px 10px; background: linear-gradient(145deg, #c7d2fe, #818cf8); position: relative; overflow: hidden; }
+        .work-shape::after { content: ''; position: absolute; inset: 20px -20px -20px 20px; border: 14px solid var(--work-accent); border-radius: 50%; }
+        .work-dashboard { display: grid; grid-template-columns: 36px 1fr; height: 170px; }
+        .work-sidebar { background: #ede9fe; display: flex; flex-direction: column; gap: 13px; padding: 15px 7px; }
+        .work-sidebar i { height: 5px; border-radius: 4px; background: #a78bfa; }
+        .work-main { padding: 10px; }
+        .work-main > b { font-size: 10px; }
+        .work-metrics { display: flex; gap: 6px; margin: 8px 0; }
+        .work-metrics div { flex: 1; padding: 6px; border: 1px solid #e2e8f0; border-radius: 5px; font-size: 6px; color: #64748b; }
+        .work-metrics b { display: block; font-size: 12px; color: #172033; }
+        .work-chart { height: 60px; display: flex; gap: 8px; align-items: end; border-bottom: 1px solid #cbd5e1; padding: 0 4px; background: repeating-linear-gradient(to top, transparent 0 18px, #e2e8f0 19px, transparent 20px); }
+        .work-chart i { height: var(--bar); flex: 1; background: #8b5cf6; border-radius: 3px 3px 0 0; }
+        .work-products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 12px; }
+        .work-product { font-size: 7px; }
+        .work-product b { display: block; margin-top: 7px; }
+        .work-object { height: 77px; background: #e7e5df; border-radius: 5px; display: grid; place-items: center; }
+        .work-object svg { width: 55%; height: 55%; color: #6b6256; }
+        .work-creative { background: #e5f0b3; --work-accent: #334321; }
+        .work-creative .work-nav { border-color: #c6d394; }
+        .work-creative .work-shape { background: #c4cf6a; border-radius: 50%; }
+        .work-personal { background: #192431; color: #f8fafc; --work-accent: #c9824d; }
+        .work-personal .work-nav { border-color: #334155; }
+        .work-personal .work-nav span { color: #cbd5e1; }
+        .work-personal .work-shape { background: #dfbda2; border-radius: 60px 60px 0 0; }
+        .work-landing { background: #fff1f2; --work-accent: #be123c; }
+        .work-landing .work-shape { background: #fecdd3; }
+        .project-inquiry-link { display: block; margin-top: 14px; color: #a5b4fc; font-size: 0.8rem; text-align: center; }
+        .portfolio-dialog { width: min(720px, calc(100% - 32px)); max-height: 90dvh; margin: auto; padding: 0; border: 1px solid #475569; border-radius: 18px; background: #111827; color: #f8fafc; overflow-y: auto; box-shadow: 0 32px 90px #0009; }
+        .portfolio-dialog::backdrop { background: #020617cc; backdrop-filter: blur(8px); }
+        .portfolio-dialog .dialog-body { padding: 28px; }
+        #modal-preview .work-preview { max-width: 420px; margin: 0 auto; height: 215px; }
+        #modal-preview { background: #0a0f1d; padding: 24px; border-top: 1px solid #334155; border-bottom: 1px solid #334155; }
+        .dialog-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px; }
+        .dialog-notice { font-size: 0.75rem; color: #94a3b8; line-height: 1.7; }
+        #skill-modal > div, #principle-modal > div { max-height: 90dvh; overflow-y: auto; }
+        .lab-feedback { min-height: 20px; margin-top: 16px; font-size: 0.8rem; color: #a5b4fc; text-align: center; }
+        @media (max-width: 400px) {
+            #contact .glass-card.flex { padding: 16px; gap: 12px; }
+            #contact .glass-card.flex a { font-size: 0.85rem; }
+            .work-nav span { max-width: 110px; text-align: right; }
+            .work-hero strong { font-size: 15px; }
+            .portfolio-dialog .dialog-body { padding: 20px; }
+        }
+
         /* Reduced Motion */
         @media (prefers-reduced-motion: reduce) {
             *, ::before, ::after {
@@ -139,7 +209,7 @@
             </a>
 
             <!-- Desktop Navigation -->
-            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-300">
+            <nav class="hidden xl:flex items-center gap-6 font-medium text-sm text-slate-300">
                 <a href="#home" class="nav-link hover:text-accent-400 transition-colors py-1">Home</a>
                 <a href="#about" class="nav-link hover:text-accent-400 transition-colors py-1">About</a>
                 <a href="#skills" class="nav-link hover:text-accent-400 transition-colors py-1">Skills</a>
@@ -151,20 +221,20 @@
                 <a href="#contact" class="nav-link hover:text-accent-400 transition-colors py-1">Contact</a>
             </nav>
 
-            <div class="hidden md:flex items-center gap-4">
+            <div class="hidden xl:flex items-center gap-4">
                 <a href="#contact" class="px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-accent-500 to-purple-600 hover:from-accent-600 hover:to-purple-700 shadow-lg shadow-accent-500/25 transition-all transform hover:-translate-y-0.5">
                     Let's Build
                 </a>
             </div>
 
             <!-- Mobile Menu Button -->
-            <button id="menu-btn" aria-label="Toggle Navigation Menu" class="md:hidden text-slate-300 hover:text-white focus:outline-none p-2">
+            <button id="menu-btn" aria-label="Toggle Navigation Menu" aria-controls="mobile-menu" aria-expanded="false" class="xl:hidden text-slate-300 hover:text-white focus:outline-none p-2">
                 <i class="fa-solid fa-bars text-xl"></i>
             </button>
         </div>
 
         <!-- Mobile Drawer Navigation -->
-        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 glass-panel border-b border-white/10 px-6 py-6 flex flex-col gap-4 shadow-2xl transition-all">
+        <div id="mobile-menu" class="hidden xl:hidden absolute top-full left-0 right-0 glass-panel border-b border-white/10 px-6 py-6 flex flex-col gap-4 shadow-2xl transition-all">
             <a href="#home" class="mobile-link text-lg font-medium text-slate-200 hover:text-accent-400 py-2 border-b border-white/5">Home</a>
             <a href="#about" class="mobile-link text-lg font-medium text-slate-200 hover:text-accent-400 py-2 border-b border-white/5">About</a>
             <a href="#skills" class="mobile-link text-lg font-medium text-slate-200 hover:text-accent-400 py-2 border-b border-white/5">Skills</a>
@@ -193,16 +263,16 @@
                     <!-- Hero Content -->
                     <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
                         <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel border border-accent-500/30 text-accent-400 text-xs font-semibold tracking-wider uppercase">
-                            <i class="fa-solid fa-code text-xs"></i> FRONTEND DEVELOPER
+                            <i class="fa-solid fa-code text-xs"></i> AYAN FAREED / FRONTEND DEVELOPER
                         </div>
 
                         <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none">
-                            CRAFTING MODERN <br>
-                            <span class="gradient-text">DIGITAL EXPERIENCES.</span>
+                            Thoughtful interfaces.<br>
+                            <span class="gradient-text">Built for real people.</span>
                         </h1>
 
                         <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-                            Ayan Fareed is a Frontend Developer focused on creating responsive, interactive and visually polished web interfaces with clean code and modern frontend practices.
+                            I'm Ayan, a frontend developer who turns ideas and designs into responsive websites. I focus on clear layouts, useful interactions, and maintainable code, from your first landing page to a detailed product interface.
                         </p>
 
                         <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
@@ -263,7 +333,7 @@
                             <!-- Live preview card inside hero visual -->
                             <div class="mt-4 p-4 rounded-xl bg-gradient-to-r from-accent-500/10 to-purple-600/10 border border-accent-500/20 flex items-center justify-between">
                                 <div class="space-y-1">
-                                    <div class="text-xs font-semibold text-accent-400 uppercase tracking-wider">Live Preview</div>
+                                    <div class="text-xs font-semibold text-accent-400 uppercase tracking-wider">Interface Preview</div>
                                     <div class="text-sm font-bold text-white">Build Better Interfaces</div>
                                 </div>
                                 <div class="w-8 h-8 rounded-full bg-accent-500/20 flex items-center justify-center text-accent-400">
@@ -725,7 +795,7 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                     <!-- Component selector list -->
                     <div class="lg:col-span-4 space-y-2">
-                        <div class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-4 px-2">Select Component Concept:</div>
+                        <div class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-4 px-2">Explore a Component:</div>
                         <button class="lab-tab-btn w-full text-left px-5 py-3.5 rounded-xl font-medium text-sm flex items-center justify-between glass-panel border border-accent-500/50 text-white transition-all shadow-md" data-target="comp-navbar">
                             <span>Responsive Navbar</span>
                             <i class="fa-solid fa-chevron-right text-xs"></i>
@@ -810,21 +880,27 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
                     <span class="text-accent-400 text-xs font-semibold tracking-widest uppercase">Selected Work</span>
-                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">PROJECT SHOWCASE</h2>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Selected Frontend Work</h2>
                     <p class="text-slate-300 text-base sm:text-lg">
-                        Conceptual frontend interface architectures and modern web applications.
+                        A selection of business websites, storefronts, and product interfaces. Explore the visual direction and frontend approach behind each one.
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <p class="work-note">Independent frontend studies. Preview content is illustrative; no live client deployments are claimed.</p>
+                <div class="work-filters" role="group" aria-label="Filter projects">
+                    <button type="button" data-project-filter="all" aria-pressed="true">All Projects</button>
+                    <button type="button" data-project-filter="website" aria-pressed="false">Websites</button>
+                    <button type="button" data-project-filter="dashboard" aria-pressed="false">Dashboards</button>
+                    <button type="button" data-project-filter="store" aria-pressed="false">E-Commerce</button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid">
                     <!-- Project 1 -->
-                    <div class="glass-card rounded-2xl overflow-hidden border border-white/10 flex flex-col justify-between group hover:border-accent-500/50 transition-all">
+                    <div class="project-card glass-card rounded-2xl overflow-hidden border border-white/10 flex flex-col justify-between group hover:border-accent-500/50 transition-all">
                         <div class="p-6 bg-gradient-to-br from-indigo-950/60 to-dark-900/80 border-b border-white/5 relative">
-                            <div class="absolute top-4 right-4">
-                                <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-accent-500/20 text-accent-400 border border-accent-500/30">Concept Project</span>
-                            </div>
-                            <div class="w-12 h-12 rounded-xl bg-accent-500/10 text-accent-400 flex items-center justify-center text-xl mb-4">
-                                <i class="fa-solid fa-globe"></i>
+                            <div class="work-preview" aria-hidden="true">
+                                <div class="work-bar"><i></i><i></i><i></i><span>BUSINESS / HOME</span></div>
+                                <div class="work-nav"><b>NORTHLINE</b><span>Services &nbsp; About &nbsp; Contact</span></div>
+                                <div class="work-hero"><div><small>A clearer way forward</small><strong>Good ideas.<br>Better business.</strong><span class="work-cta">Explore services</span></div><div class="work-shape"></div></div>
                             </div>
                             <h3 class="text-xl font-bold text-white mb-2">Modern Business Website</h3>
                             <p class="text-slate-400 text-sm leading-relaxed">Responsive business website with modern layout, navigation and service sections.</p>
@@ -835,7 +911,7 @@
                                 <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">CSS3</span>
                                 <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">JavaScript</span>
                             </div>
-                            <button onclick="openProjectModal('Modern Business Website', 'Concept Project', 'Responsive business website with modern layout, navigation, and structured service sections designed for maximum conversion and clean readability across devices.', ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design'])" class="w-full py-3 rounded-xl text-center text-xs font-semibold text-white bg-white/10 hover:bg-accent-500 transition-colors flex items-center justify-center gap-2">
+                            <button onclick="openProjectModal('Modern Business Website', 'Project Overview', 'A business website study focused on clear service messaging, responsive navigation, and an easy path to making an inquiry.', ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design'])" class="w-full py-3 rounded-xl text-center text-xs font-semibold text-white bg-white/10 hover:bg-accent-500 transition-colors flex items-center justify-center gap-2">
                                 <span>View Details</span>
                                 <i class="fa-solid fa-arrow-right"></i>
                             </button>
@@ -843,13 +919,11 @@
                     </div>
 
                     <!-- Project 2 -->
-                    <div class="glass-card rounded-2xl overflow-hidden border border-white/10 flex flex-col justify-between group hover:border-accent-500/50 transition-all">
+                    <div class="project-card glass-card rounded-2xl overflow-hidden border border-white/10 flex flex-col justify-between group hover:border-accent-500/50 transition-all">
                         <div class="p-6 bg-gradient-to-br from-purple-950/60 to-dark-900/80 border-b border-white/5 relative">
-                            <div class="absolute top-4 right-4">
-                                <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-accent-500/20 text-accent-400 border border-accent-500/30">Concept Project</span>
-                            </div>
-                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl mb-4">
-                                <i class="fa-solid fa-chart-pie"></i>
+                            <div class="work-preview" aria-hidden="true">
+                                <div class="work-bar"><i></i><i></i><i></i><span>PULSE / WORKSPACE</span></div>
+                                <div class="work-dashboard"><div class="work-sidebar"><i></i><i></i><i></i><i></i></div><div class="work-main"><b>Workspace overview</b><div class="work-metrics"><div>Sessions<b>24.8k</b></div><div>Projects<b>18</b></div><div>Tasks<b>124</b></div></div><div class="work-chart"><i style="--bar: 30%;"></i><i style="--bar: 55%;"></i><i style="--bar: 40%;"></i><i style="--bar: 74%;"></i><i style="--bar: 60%;"></i><i style="--bar: 90%;"></i></div></div></div>
                             </div>
                             <h3 class="text-xl font-bold text-white mb-2">SaaS Dashboard</h3>
                             <p class="text-slate-400 text-sm leading-relaxed">Modern dashboard interface with cards, navigation and responsive layouts.</p>
@@ -860,7 +934,7 @@
                                 <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">JavaScript</span>
                                 <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">UI Components</span>
                             </div>
-                            <button onclick="openProjectModal('SaaS Dashboard', 'Concept Project', 'Modern dashboard interface featuring data widgets, sidebar navigation, modular cards, and fully responsive layouts for administrative analytics.', ['Tailwind CSS', 'JavaScript', 'UI Components', 'Charts'])" class="w-full py-3 rounded-xl text-center text-xs font-semibold text-white bg-white/10 hover:bg-accent-500 transition-colors flex items-center justify-center gap-2">
+                            <button onclick="openProjectModal('SaaS Dashboard', 'Project Overview', 'Modern dashboard interface featuring data widgets, sidebar navigation, modular cards, and fully responsive layouts for administrative analytics.', ['Tailwind CSS', 'JavaScript', 'UI Components', 'Charts'])" class="w-full py-3 rounded-xl text-center text-xs font-semibold text-white bg-white/10 hover:bg-accent-500 transition-colors flex items-center justify-center gap-2">
                                 <span>View Details</span>
                                 <i class="fa-solid fa-arrow-right"></i>
                             </button>
@@ -868,13 +942,12 @@
                     </div>
 
                     <!-- Project 3 -->
-                    <div class="glass-card rounded-2xl overflow-hidden border border-white/10 flex flex-col justify-between group hover:border-accent-500/50 transition-all">
+                    <div class="project-card glass-card rounded-2xl overflow-hidden border border-white/10 flex flex-col justify-between group hover:border-accent-500/50 transition-all">
                         <div class="p-6 bg-gradient-to-br from-emerald-950/60 to-dark-900/80 border-b border-white/5 relative">
-                            <div class="absolute top-4 right-4">
-                                <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-accent-500/20 text-accent-400 border border-accent-500/30">Concept Project</span>
-                            </div>
-                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl mb-4">
-                                <i class="fa-solid fa-bag-shopping"></i>
+                            <div class="work-preview" aria-hidden="true">
+                                <div class="work-bar"><i></i><i></i><i></i><span>FORM / COLLECTION</span></div>
+                                <div class="work-nav"><b>FORM STORE</b><span>New arrivals &nbsp; Shop &nbsp; Bag (0)</span></div>
+                                <div class="work-products"><div class="work-product"><div class="work-object"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3"><path d="M14 23h36l4 32H10l4-32Z M23 23v-9a9 9 0 0 1 18 0v9"/></svg></div><b>Everyday tote</b>Canvas collection</div><div class="work-product"><div class="work-object"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3"><path d="M15 15h29v30a9 9 0 0 1-9 9H24a9 9 0 0 1-9-9V15Z M44 21h6a9 9 0 0 1 0 18h-6"/></svg></div><b>Studio mug</b>Morning essentials</div><div class="work-product"><div class="work-object"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3"><rect x="14" y="8" width="36" height="48" rx="4"/><path d="M23 8v48 M29 22h14 M29 30h14"/></svg></div><b>Daily notebook</b>Room for ideas</div></div>
                             </div>
                             <h3 class="text-xl font-bold text-white mb-2">E-Commerce Interface</h3>
                             <p class="text-slate-400 text-sm leading-relaxed">Frontend shopping interface with product cards, filters and responsive design.</p>
@@ -885,7 +958,7 @@
                                 <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">CSS3</span>
                                 <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">JavaScript</span>
                             </div>
-                            <button onclick="openProjectModal('E-Commerce Interface', 'Concept Project', 'Frontend shopping interface featuring product cards, category filters, interactive cart drawer, and fully responsive grid architecture.', ['HTML5', 'CSS3', 'JavaScript', 'Filters'])" class="w-full py-3 rounded-xl text-center text-xs font-semibold text-white bg-white/10 hover:bg-accent-500 transition-colors flex items-center justify-center gap-2">
+                            <button onclick="openProjectModal('E-Commerce Interface', 'Project Overview', 'A storefront interface study with clear product cards, collection navigation, and a planned cart journey. The preview focuses on layout and product discovery rather than live checkout.', ['HTML5', 'CSS3', 'JavaScript', 'Filters'])" class="w-full py-3 rounded-xl text-center text-xs font-semibold text-white bg-white/10 hover:bg-accent-500 transition-colors flex items-center justify-center gap-2">
                                 <span>View Details</span>
                                 <i class="fa-solid fa-arrow-right"></i>
                             </button>
@@ -893,13 +966,12 @@
                     </div>
 
                     <!-- Project 4 -->
-                    <div class="glass-card rounded-2xl overflow-hidden border border-white/10 flex flex-col justify-between group hover:border-accent-500/50 transition-all">
+                    <div class="project-card glass-card rounded-2xl overflow-hidden border border-white/10 flex flex-col justify-between group hover:border-accent-500/50 transition-all">
                         <div class="p-6 bg-gradient-to-br from-sky-950/60 to-dark-900/80 border-b border-white/5 relative">
-                            <div class="absolute top-4 right-4">
-                                <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-accent-500/20 text-accent-400 border border-accent-500/30">Concept Project</span>
-                            </div>
-                            <div class="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-xl mb-4">
-                                <i class="fa-solid fa-pen-nib"></i>
+                            <div class="work-preview work-creative" aria-hidden="true">
+                                <div class="work-bar"><i></i><i></i><i></i><span>STUDIO / SELECTED WORK</span></div>
+                                <div class="work-nav"><b>STUDIO FIELD</b><span>Work &nbsp; Approach &nbsp; Let's talk</span></div>
+                                <div class="work-hero"><div><small>Independent creative studio</small><strong>Different thinking.<br>Distinctive design.</strong><span class="work-cta">Discover our work</span></div><div class="work-shape"></div></div>
                             </div>
                             <h3 class="text-xl font-bold text-white mb-2">Creative Agency Website</h3>
                             <p class="text-slate-400 text-sm leading-relaxed">Visual agency website with animated sections and modern typography.</p>
@@ -910,7 +982,7 @@
                                 <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">Animations</span>
                                 <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">Typography</span>
                             </div>
-                            <button onclick="openProjectModal('Creative Agency Website', 'Concept Project', 'Visual agency website featuring smooth scroll reveals, modern typography hierarchies, creative CSS shapes, and striking visual layouts.', ['CSS Grid', 'Animations', 'Typography', 'HTML5'])" class="w-full py-3 rounded-xl text-center text-xs font-semibold text-white bg-white/10 hover:bg-accent-500 transition-colors flex items-center justify-center gap-2">
+                            <button onclick="openProjectModal('Creative Agency Website', 'Project Overview', 'Visual agency website featuring smooth scroll reveals, modern typography hierarchies, creative CSS shapes, and striking visual layouts.', ['CSS Grid', 'Animations', 'Typography', 'HTML5'])" class="w-full py-3 rounded-xl text-center text-xs font-semibold text-white bg-white/10 hover:bg-accent-500 transition-colors flex items-center justify-center gap-2">
                                 <span>View Details</span>
                                 <i class="fa-solid fa-arrow-right"></i>
                             </button>
@@ -918,13 +990,12 @@
                     </div>
 
                     <!-- Project 5 -->
-                    <div class="glass-card rounded-2xl overflow-hidden border border-white/10 flex flex-col justify-between group hover:border-accent-500/50 transition-all">
+                    <div class="project-card glass-card rounded-2xl overflow-hidden border border-white/10 flex flex-col justify-between group hover:border-accent-500/50 transition-all">
                         <div class="p-6 bg-gradient-to-br from-amber-950/60 to-dark-900/80 border-b border-white/5 relative">
-                            <div class="absolute top-4 right-4">
-                                <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-accent-500/20 text-accent-400 border border-accent-500/30">Concept Project</span>
-                            </div>
-                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4">
-                                <i class="fa-solid fa-user-tie"></i>
+                            <div class="work-preview work-personal" aria-hidden="true">
+                                <div class="work-bar"><i></i><i></i><i></i><span>PERSONAL PORTFOLIO / HOME</span></div>
+                                <div class="work-nav"><b>AYAN.DEV</b><span>About &nbsp; Work &nbsp; Contact</span></div>
+                                <div class="work-hero"><div><small>Design to frontend</small><strong>Interfaces with<br>attention to detail.</strong><span class="work-cta">View selected work</span></div><div class="work-shape"></div></div>
                             </div>
                             <h3 class="text-xl font-bold text-white mb-2">Portfolio Website</h3>
                             <p class="text-slate-400 text-sm leading-relaxed">Personal portfolio interface with projects, skills and contact sections.</p>
@@ -935,7 +1006,7 @@
                                 <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">Tailwind CSS</span>
                                 <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">Vanilla JS</span>
                             </div>
-                            <button onclick="openProjectModal('Portfolio Website', 'Concept Project', 'Personal portfolio interface highlighting professional skills, project showcases, interactive components, and fully validated contact workflow.', ['HTML5', 'Tailwind CSS', 'Vanilla JS'])" class="w-full py-3 rounded-xl text-center text-xs font-semibold text-white bg-white/10 hover:bg-accent-500 transition-colors flex items-center justify-center gap-2">
+                            <button onclick="openProjectModal('Portfolio Website', 'Project Overview', 'Personal portfolio interface highlighting professional skills, project showcases, interactive components, and fully validated contact workflow.', ['HTML5', 'Tailwind CSS', 'Vanilla JS'])" class="w-full py-3 rounded-xl text-center text-xs font-semibold text-white bg-white/10 hover:bg-accent-500 transition-colors flex items-center justify-center gap-2">
                                 <span>View Details</span>
                                 <i class="fa-solid fa-arrow-right"></i>
                             </button>
@@ -943,13 +1014,12 @@
                     </div>
 
                     <!-- Project 6 -->
-                    <div class="glass-card rounded-2xl overflow-hidden border border-white/10 flex flex-col justify-between group hover:border-accent-500/50 transition-all">
+                    <div class="project-card glass-card rounded-2xl overflow-hidden border border-white/10 flex flex-col justify-between group hover:border-accent-500/50 transition-all">
                         <div class="p-6 bg-gradient-to-br from-rose-950/60 to-dark-900/80 border-b border-white/5 relative">
-                            <div class="absolute top-4 right-4">
-                                <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-accent-500/20 text-accent-400 border border-accent-500/30">Concept Project</span>
-                            </div>
-                            <div class="w-12 h-12 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-xl mb-4">
-                                <i class="fa-solid fa-rocket"></i>
+                            <div class="work-preview work-landing" aria-hidden="true">
+                                <div class="work-bar"><i></i><i></i><i></i><span>LAUNCH / PRODUCT PAGE</span></div>
+                                <div class="work-nav"><b>ORBIT</b><span>Features &nbsp; How it works &nbsp; Start</span></div>
+                                <div class="work-hero"><div><small>Less friction. More focus.</small><strong>Make room<br>for your best work.</strong><span class="work-cta">Explore the product</span></div><div class="work-shape"></div></div>
                             </div>
                             <h3 class="text-xl font-bold text-white mb-2">Landing Page</h3>
                             <p class="text-slate-400 text-sm leading-relaxed">Modern responsive landing page focused on strong visual hierarchy and CTA sections.</p>
@@ -960,7 +1030,7 @@
                                 <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">CSS3</span>
                                 <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/5 text-slate-300">Flexbox</span>
                             </div>
-                            <button onclick="openProjectModal('Landing Page', 'Concept Project', 'Modern responsive landing page optimized for high conversion rates, strong visual hierarchy, engaging value propositions, and prominent CTA actions.', ['HTML5', 'CSS3', 'Flexbox', 'Responsive'])" class="w-full py-3 rounded-xl text-center text-xs font-semibold text-white bg-white/10 hover:bg-accent-500 transition-colors flex items-center justify-center gap-2">
+                            <button onclick="openProjectModal('Landing Page', 'Project Overview', 'A product landing page study with a focused value proposition, clear visual hierarchy, and carefully placed calls to action. Designed around a straightforward visitor journey.', ['HTML5', 'CSS3', 'Flexbox', 'Responsive'])" class="w-full py-3 rounded-xl text-center text-xs font-semibold text-white bg-white/10 hover:bg-accent-500 transition-colors flex items-center justify-center gap-2">
                                 <span>View Details</span>
                                 <i class="fa-solid fa-arrow-right"></i>
                             </button>
@@ -1148,10 +1218,10 @@
         <section class="py-24 relative bg-dark-800/50 border-t border-b border-white/5">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                    <span class="text-accent-400 text-xs font-semibold tracking-widest uppercase">Live Sandbox</span>
-                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">INTERACTIVE CODE EDITOR</h2>
+                    <span class="text-accent-400 text-xs font-semibold tracking-widest uppercase">Inside the Code</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">How the Interface Comes Together</h2>
                     <p class="text-slate-300 text-base sm:text-lg">
-                        Test and inspect frontend code blocks across HTML, CSS, and JavaScript.
+                        Explore the HTML structure, CSS styling, and JavaScript behind a simple interface. These read-only examples explain the approach without running your code.
                     </p>
                 </div>
 
@@ -1441,11 +1511,11 @@
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                     <div class="space-y-2">
                                         <label for="name" class="block text-xs font-mono uppercase text-slate-300">Your Name *</label>
-                                        <input type="text" id="name" required class="w-full px-4 py-3 rounded-xl bg-dark-900 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-accent-500 transition-colors text-sm" placeholder="Enter your name">
+                                        <input type="text" id="name" name="name" autocomplete="name" required class="w-full px-4 py-3 rounded-xl bg-dark-900 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-accent-500 transition-colors text-sm" placeholder="Enter your name">
                                     </div>
                                     <div class="space-y-2">
                                         <label for="email" class="block text-xs font-mono uppercase text-slate-300">Your Email *</label>
-                                        <input type="email" id="email" required class="w-full px-4 py-3 rounded-xl bg-dark-900 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-accent-500 transition-colors text-sm" placeholder="Enter your email">
+                                        <input type="email" id="email" name="email" autocomplete="email" required class="w-full px-4 py-3 rounded-xl bg-dark-900 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-accent-500 transition-colors text-sm" placeholder="Enter your email">
                                     </div>
                                 </div>
 
@@ -1468,12 +1538,18 @@
                                 </div>
 
                                 <button type="submit" class="w-full py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-accent-500 to-purple-600 hover:from-accent-600 hover:to-purple-700 shadow-xl shadow-accent-500/25 transition-all flex items-center justify-center gap-2">
-                                    <span>Send Message via WhatsApp / Email</span>
+                                    <span>Prepare Project Inquiry</span>
                                     <i class="fa-solid fa-paper-plane text-xs"></i>
                                 </button>
 
-                                <div id="form-success-msg" class="hidden p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm text-center">
-                                    Form validated successfully! Opening WhatsApp / Email client to send your message to Ayan Fareed...
+                                <div id="form-error-msg" role="alert" class="hidden text-rose-400 text-sm"></div>
+                                <div id="form-success-msg" role="status" tabindex="-1" class="hidden p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm text-center">
+                                    <strong>Your inquiry is ready.</strong>
+                                    <p class="mt-2 text-slate-300">Choose WhatsApp or email to review and send it to Ayan. Nothing has been sent yet.</p>
+                                    <div class="flex flex-wrap justify-center gap-3 mt-4">
+                                        <a id="inquiry-whatsapp" href="https://wa.me/923042207229" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-emerald-600 text-white font-semibold">Send on WhatsApp</a>
+                                        <a id="inquiry-email" href="mailto:ayan.frontend@gmail.com" class="px-4 py-2 rounded-lg bg-accent-500 text-white font-semibold">Send by Email</a>
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -1559,39 +1635,35 @@
     </footer>
 
     <!-- PROJECT MODAL -->
-    <div id="project-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-dark-900/80 backdrop-blur-md">
-        <div class="glass-card max-w-lg w-full p-6 sm:p-8 rounded-2xl border border-white/10 relative space-y-6 shadow-2xl">
-            <button onclick="closeProjectModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2">
+    <dialog id="project-modal" class="portfolio-dialog" aria-labelledby="modal-title" aria-describedby="modal-desc">
+        <div class="dialog-body relative">
+            <button onclick="closeProjectModal()" aria-label="Close project details" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2" autofocus>
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
-            <div>
-                <span id="modal-tag" class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-accent-500/20 text-accent-400 border border-accent-500/30">Concept Project</span>
-                <h3 id="modal-title" class="text-2xl font-bold text-white mt-3">Project Title</h3>
-            </div>
-            <p id="modal-desc" class="text-slate-300 text-sm leading-relaxed">
-                Project description goes here...
-            </p>
+            <span id="modal-tag" class="text-xs font-mono text-accent-400">Project Overview</span>
+            <h3 id="modal-title" class="text-2xl font-bold text-white mt-3 pr-8">Project Title</h3>
+        </div>
+        <div id="modal-preview" aria-hidden="true"></div>
+        <div class="dialog-body space-y-6">
+            <p id="modal-desc" class="text-slate-300 text-sm leading-relaxed"></p>
             <div class="space-y-2">
-                <div class="text-xs font-mono uppercase text-slate-400">Technologies Used:</div>
+                <div class="text-xs font-mono uppercase text-slate-400">Frontend Approach</div>
                 <div id="modal-tech" class="flex flex-wrap gap-2">
                     <!-- Tech badges inserted via JS -->
                 </div>
             </div>
-            <div class="pt-4 border-t border-white/10 flex justify-end gap-3">
-                <button onclick="closeProjectModal()" class="px-5 py-2.5 rounded-xl text-xs font-semibold text-slate-300 glass-panel hover:bg-white/10 transition-colors">
-                    Close
-                </button>
-                <a href="#contact" onclick="closeProjectModal()" class="px-5 py-2.5 rounded-xl text-xs font-semibold text-white bg-accent-500 hover:bg-accent-600 transition-colors">
-                    Inquire Similar Project
-                </a>
+            <p class="dialog-notice">This is an independent interface study with illustrative content. The preview is not a live client application; accounts, payments, and backend services are not connected.</p>
+            <div class="dialog-actions pt-4 border-t border-white/10">
+                <button onclick="closeProjectModal()" class="px-5 py-2.5 rounded-xl text-xs font-semibold text-slate-300 glass-panel hover:bg-white/10">Close</button>
+                <button onclick="inquireAboutProject()" class="px-5 py-2.5 rounded-xl text-xs font-semibold text-white bg-accent-500 hover:bg-accent-600">Discuss a Similar Project</button>
             </div>
         </div>
-    </div>
+    </dialog>
 
     <!-- SKILL INSPECT MODAL -->
-    <div id="skill-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-dark-900/80 backdrop-blur-md">
+    <dialog id="skill-modal" class="portfolio-dialog" style="max-width: 448px;" aria-labelledby="skill-modal-title" aria-describedby="skill-modal-desc">
         <div class="glass-card max-w-md w-full p-6 rounded-2xl border border-white/10 relative space-y-4 shadow-2xl">
-            <button onclick="closeSkillModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2">
+            <button onclick="closeSkillModal()" aria-label="Close skill details" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
             <h3 id="skill-modal-title" class="text-xl font-bold text-white">Skill Title</h3>
@@ -1600,12 +1672,12 @@
                 <button onclick="closeSkillModal()" class="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-accent-500 hover:bg-accent-600 transition-colors">Close</button>
             </div>
         </div>
-    </div>
+    </dialog>
 
     <!-- PRINCIPLE INSPECT MODAL -->
-    <div id="principle-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-dark-900/80 backdrop-blur-md">
+    <dialog id="principle-modal" class="portfolio-dialog" style="max-width: 448px;" aria-labelledby="principle-modal-title" aria-describedby="principle-modal-desc">
         <div class="glass-card max-w-md w-full p-6 rounded-2xl border border-white/10 relative space-y-4 shadow-2xl">
-            <button onclick="closePrincipleModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2">
+            <button onclick="closePrincipleModal()" aria-label="Close principle details" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
             <h3 id="principle-modal-title" class="text-xl font-bold text-white">Principle Title</h3>
@@ -1614,7 +1686,7 @@
                 <button onclick="closePrincipleModal()" class="px-5 py-2 rounded-xl text-xs font-semibold text-white bg-accent-500 hover:bg-accent-600 transition-colors">Close</button>
             </div>
         </div>
-    </div>
+    </dialog>
 
     <!-- JAVASCRIPT FUNCTIONALITY -->
     <script>
@@ -1625,33 +1697,87 @@
                 yearSpan.textContent = new Date().getFullYear();
             }
 
+            const projectCards = document.querySelectorAll('.project-card');
+            const projectCategories = ['website', 'dashboard', 'store', 'website', 'website', 'website'];
+            projectCards.forEach((card, index) => {
+                card.dataset.projectCategory = projectCategories[index];
+                const title = card.querySelector('h3').textContent;
+                const button = card.querySelector('button');
+                button.setAttribute('aria-label', `View ${title} project details`);
+                button.setAttribute('aria-haspopup', 'dialog');
+                const inquiry = document.createElement('a');
+                inquiry.href = '#contact';
+                inquiry.className = 'project-inquiry-link';
+                inquiry.textContent = 'Build something similar';
+                inquiry.setAttribute('aria-label', `Discuss a project similar to ${title}`);
+                inquiry.addEventListener('click', event => {
+                    event.preventDefault();
+                    inquireAboutProject(title);
+                });
+                button.after(inquiry);
+            });
+            document.querySelectorAll('[data-project-filter]').forEach(button => {
+                button.addEventListener('click', () => {
+                    document.querySelectorAll('[data-project-filter]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+                    projectCards.forEach(card => {
+                        card.hidden = button.dataset.projectFilter !== 'all' && card.dataset.projectCategory !== button.dataset.projectFilter;
+                    });
+                });
+            });
+            document.querySelectorAll('.skill-card, .principle-card').forEach(card => {
+                card.setAttribute('role', 'button');
+                card.setAttribute('tabindex', '0');
+                card.setAttribute('aria-haspopup', 'dialog');
+                card.addEventListener('keydown', event => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        card.click();
+                    }
+                });
+            });
+            document.querySelectorAll('dialog').forEach(dialog => {
+                dialog.addEventListener('click', event => {
+                    const rect = dialog.getBoundingClientRect();
+                    if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) dialog.close();
+                });
+            });
+
             // 2. Mobile Navigation Toggle
             const menuBtn = document.getElementById('menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             const mobileLinks = document.querySelectorAll('.mobile-link');
 
             if (menuBtn && mobileMenu) {
-                menuBtn.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
+                const setMenuOpen = open => {
+                    mobileMenu.classList.toggle('hidden', !open);
+                    menuBtn.setAttribute('aria-expanded', String(open));
+                    menuBtn.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+                    menuBtn.querySelector('i').className = open ? 'fa-solid fa-xmark text-xl' : 'fa-solid fa-bars text-xl';
+                };
+                menuBtn.addEventListener('click', () => setMenuOpen(mobileMenu.classList.contains('hidden')));
+                mobileLinks.forEach(link => link.addEventListener('click', () => setMenuOpen(false)));
+                window.matchMedia('(min-width: 1280px)').addEventListener('change', () => setMenuOpen(false));
+                document.addEventListener('click', event => {
+                    if (!document.getElementById('navbar').contains(event.target)) setMenuOpen(false);
                 });
-
-                mobileLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.add('hidden');
-                    });
+                document.addEventListener('keydown', event => {
+                    if (event.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+                        setMenuOpen(false);
+                        menuBtn.focus();
+                    }
                 });
             }
 
             // 3. Sticky Navbar Shadow on Scroll & Active Section Highlighting
             const navbar = document.getElementById('navbar');
-            const sections = document.querySelectorAll('section');
+            const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('.nav-link');
 
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 20) {
-                    navbar.classList.add('shadow-xl', 'bg-dark-950/90');
+                    navbar.classList.add('shadow-xl', 'bg-dark-900/90');
                 } else {
-                    navbar.classList.remove('shadow-xl', 'bg-dark-950/90');
+                    navbar.classList.remove('shadow-xl', 'bg-dark-900/90');
                 }
 
                 let current = '';
@@ -1676,8 +1802,10 @@
             const skillCards = document.querySelectorAll('.skill-card');
 
             filterBtns.forEach(btn => {
+                btn.setAttribute('aria-pressed', String(btn.dataset.filter === 'all'));
                 btn.addEventListener('click', () => {
                     filterBtns.forEach(b => {
+                        b.setAttribute('aria-pressed', String(b === btn));
                         b.classList.remove('bg-accent-500', 'text-white', 'shadow-lg', 'shadow-accent-500/25');
                         b.classList.add('glass-panel', 'text-slate-300');
                     });
@@ -1702,8 +1830,7 @@
                     const desc = card.getAttribute('data-desc');
                     document.getElementById('skill-modal-title').textContent = title;
                     document.getElementById('skill-modal-desc').textContent = desc;
-                    document.getElementById('skill-modal').classList.remove('hidden');
-                    document.getElementById('skill-modal').classList.add('flex');
+                    document.getElementById('skill-modal').showModal();
                 });
             });
 
@@ -1711,6 +1838,24 @@
             const labTabs = document.querySelectorAll('.lab-tab-btn');
             const labTitle = document.getElementById('lab-component-title');
             const labPreview = document.getElementById('lab-preview-container');
+            const labFeedback = document.createElement('p');
+            labFeedback.className = 'lab-feedback';
+            labFeedback.setAttribute('role', 'status');
+            labFeedback.textContent = 'UI demonstrations only. No account, payment, or backend is connected.';
+            labPreview.after(labFeedback);
+            labPreview.addEventListener('click', event => {
+                const button = event.target.closest('button');
+                if (!button || !labPreview.contains(button)) return;
+                if (button.textContent === 'Add to Cart' || button.dataset.cartAdded) {
+                    const added = button.dataset.cartAdded !== 'true';
+                    button.dataset.cartAdded = String(added);
+                    button.textContent = added ? 'Remove from Cart' : 'Add to Cart';
+                    button.setAttribute('aria-pressed', String(added));
+                    labFeedback.textContent = added ? 'Preview cart: 1 item. No purchase has been made.' : 'Preview cart is empty.';
+                } else {
+                    labFeedback.textContent = `${button.textContent.trim()} selected in the preview. No data has been sent.`;
+                }
+            });
 
             const labComponents = {
                 'comp-navbar': {
@@ -1743,7 +1888,7 @@
                 },
                 'comp-notification': {
                     title: 'Component Preview: Notification Component',
-                    html: `<div class="w-full max-w-sm p-4 rounded-xl glass-panel border border-emerald-500/30 bg-emerald-500/5 flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0"><i class="fa-solid fa-check text-xs"></i></div><div class="text-xs"><div class="font-bold text-white">Success!</div><div class="text-slate-300">Changes saved to deployment pipeline.</div></div></div>`
+                    html: `<div class="w-full max-w-sm p-4 rounded-xl glass-panel border border-emerald-500/30 bg-emerald-500/5 flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0"><i class="fa-solid fa-check text-xs"></i></div><div class="text-xs"><div class="font-bold text-white">Success!</div><div class="text-slate-300">Example notification for a completed action.</div></div></div>`
                 },
                 'comp-grid': {
                     title: 'Component Preview: Responsive Grid',
@@ -1755,9 +1900,16 @@
                 }
             };
 
-            labTabs.forEach(tab => {
+            labTabs.forEach((tab, index) => {
+                tab.setAttribute('aria-pressed', String(index === 0));
+                tab.classList.remove('border-accent-500/50');
+                if (index === 0) {
+                    tab.classList.remove('glass-panel', 'text-slate-300');
+                    tab.classList.add('bg-accent-500', 'text-white');
+                }
                 tab.addEventListener('click', () => {
                     labTabs.forEach(t => {
+                        t.setAttribute('aria-pressed', String(t === tab));
                         t.classList.remove('bg-accent-500', 'text-white');
                         t.classList.add('glass-panel', 'text-slate-300');
                     });
@@ -1768,6 +1920,7 @@
                     if (labComponents[target]) {
                         labTitle.textContent = labComponents[target].title;
                         labPreview.innerHTML = labComponents[target].html;
+                        labFeedback.textContent = 'UI demonstrations only. No account, payment, or backend is connected.';
                     }
                 });
             });
@@ -1831,8 +1984,7 @@
                     const desc = card.getAttribute('data-desc');
                     document.getElementById('principle-modal-title').textContent = title;
                     document.getElementById('principle-modal-desc').textContent = desc;
-                    document.getElementById('principle-modal').classList.remove('hidden');
-                    document.getElementById('principle-modal').classList.add('flex');
+                    document.getElementById('principle-modal').showModal();
                 });
             });
 
@@ -1841,7 +1993,8 @@
             faqItems.forEach(item => {
                 const btn = item.querySelector('.faq-btn');
                 const content = item.querySelector('.faq-content');
-                const icon = btn.querySelector('fa-chevron-down') || btn.querySelector('i');
+                const icon = btn.querySelector('i');
+                btn.setAttribute('aria-expanded', 'false');
 
                 btn.addEventListener('click', () => {
                     const isOpen = !content.classList.contains('hidden');
@@ -1849,6 +2002,7 @@
                     // Close all
                     faqItems.forEach(i => {
                         i.querySelector('.faq-content').classList.add('hidden');
+                        i.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
                         const ic = i.querySelector('.faq-btn i');
                         if (ic) ic.style.transform = 'rotate(0deg)';
                     });
@@ -1858,6 +2012,7 @@
                         if (icon) icon.style.transform = 'rotate(0deg)';
                     } else {
                         content.classList.remove('hidden');
+                        btn.setAttribute('aria-expanded', 'true');
                         if (icon) icon.style.transform = 'rotate(180deg)';
                     }
                 });
@@ -1875,8 +2030,14 @@
                     const projectType = document.getElementById('project-type').value;
                     const message = document.getElementById('message').value.trim();
 
+                    const errorMsg = document.getElementById('form-error-msg');
+                    errorMsg.classList.add('hidden');
                     if (!name || !email || !projectType || !message) {
-                        alert('Please fill in all required fields.');
+                        successMsg.classList.add('hidden');
+                        errorMsg.textContent = 'Please fill in your name, email, project type, and message.';
+                        errorMsg.classList.remove('hidden');
+                        const missing = ['name', 'email', 'project-type', 'message'].find(id => !document.getElementById(id).value.trim());
+                        document.getElementById(missing).focus();
                         return;
                     }
 
@@ -1887,9 +2048,13 @@
                     const encodedText = encodeURIComponent(whatsappText);
                     const whatsappUrl = `https://wa.me/923042207229?text=${encodedText}`;
 
-                    setTimeout(() => {
-                        window.open(whatsappUrl, '_blank');
-                    }, 1500);
+                    document.getElementById('inquiry-whatsapp').href = whatsappUrl;
+                    document.getElementById('inquiry-email').href = `mailto:ayan.frontend@gmail.com?subject=${encodeURIComponent(`Project Inquiry: ${projectType}`)}&body=${encodedText}`;
+                    successMsg.focus();
+                });
+                contactForm.addEventListener('input', () => {
+                    successMsg.classList.add('hidden');
+                    document.getElementById('form-error-msg').classList.add('hidden');
                 });
             }
         });
@@ -1909,23 +2074,36 @@
                 techContainer.appendChild(span);
             });
 
-            document.getElementById('project-modal').classList.remove('hidden');
-            document.getElementById('project-modal').classList.add('flex');
+            const card = Array.from(document.querySelectorAll('.project-card')).find(item => item.querySelector('h3').textContent === title);
+            const preview = document.getElementById('modal-preview');
+            preview.replaceChildren();
+            if (card) preview.appendChild(card.querySelector('.work-preview').cloneNode(true));
+            document.getElementById('project-modal').showModal();
         }
 
         function closeProjectModal() {
-            document.getElementById('project-modal').classList.add('hidden');
-            document.getElementById('project-modal').classList.remove('flex');
+            const modal = document.getElementById('project-modal');
+            if (modal.open) modal.close();
+        }
+
+        function inquireAboutProject(title = document.getElementById('modal-title').textContent) {
+            const types = { 'Modern Business Website': 'Business Website', 'Landing Page': 'Landing Page', 'SaaS Dashboard': 'UI Implementation', 'E-Commerce Interface': 'Frontend Development', 'Creative Agency Website': 'Responsive Web Design', 'Portfolio Website': 'Frontend Development' };
+            const intro = `I would like to discuss a website similar to ${title}.`;
+            const message = document.getElementById('message');
+            document.getElementById('project-type').value = types[title] || 'Other';
+            if (!message.value.includes(intro)) message.value = message.value.trim() ? `${message.value.trim()}\n\n${intro}` : `${intro}\nMy requirements: `;
+            document.getElementById('form-success-msg').classList.add('hidden');
+            closeProjectModal();
+            document.getElementById('contact').scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+            document.getElementById('name').focus({ preventScroll: true });
         }
 
         function closeSkillModal() {
-            document.getElementById('skill-modal').classList.add('hidden');
-            document.getElementById('skill-modal').classList.remove('flex');
+            document.getElementById('skill-modal').close();
         }
 
         function closePrincipleModal() {
-            document.getElementById('principle-modal').classList.add('hidden');
-            document.getElementById('principle-modal').classList.remove('flex');
+            document.getElementById('principle-modal').close();
         }
     </script>
 </body>
